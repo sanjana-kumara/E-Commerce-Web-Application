@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -15,14 +15,35 @@
     <link rel="icon" href="#" />
 
 </head>
-<body>
 
-    <div class="">
+<body class="bd">
 
+
+    <div class="container-fluid">
+        <div class="row">
+            <?php include "header.php"?>
+
+
+
+            <div class="col-12">
+                <p class="fs-2 fw-bold">
+                    Our Partners
+                </p>
+
+                <?php include "brand.php"?>
+
+                <h3>test</h3>
+
+            </div>
+
+
+        </div>
     </div>
-    
+
 
     <script src="bootstrap.js"></script>
     <script src="script.js"></script>
+    <?php include "footer.php"?>
 </body>
+
 </html>

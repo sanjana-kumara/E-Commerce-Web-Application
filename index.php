@@ -225,7 +225,7 @@
 
             <!-- footer -->
             <div class="col-12 fixed-bottom d-none d-lg-block">
-                <p class="text-center text-danger fs-4">&copy; 2022 Halgahawatta Hardware.lk || All Rights Reserved </p>
+                <p class="text-center text-danger fs-4">&copy; 2022 Halgahawatta Hardware.lk || All Rights Reserved. </p>
             </div>
             <!-- footer -->
 
