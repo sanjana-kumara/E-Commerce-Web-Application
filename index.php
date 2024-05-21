@@ -24,35 +24,33 @@
                 <div class="row">
                     <div class="col-12 logo"></div>
                     <div class="col-12">
-                        <p class="text-center title01"> Welcome to Halgahawatta Hardware  </p>
+                        <p class="text-center title01"> Welcome to Halgahawatta Hardware </p>
                     </div>
                 </div>
             </div>
             <!-- header -->
 
-             <!-- content -->
+            <!-- content -->
 
-             <div class="col-12 p-3">
+            <div class="col-12 p-3">
                 <div class="row">
 
-                    <div class="col-6 d-none d-lg-block background"></div>
+                    <div class="col-6 d-lg-block background"></div>
                     <!-- signupbox -->
 
-                    <div class="col-12 col-lg-6" id="signUpBox">
+                    <div class="col-12 col-lg-6 d-none" id="signUpBox">
                         <div class="row g-2 ">
 
                             <div class="col-12">
                                 <p class="title02">Create New Account</p>
                             </div>
-                            
-                            <div class="col-11 d-none" id="msgdiv">
-                                <div class="alert col-11 fs-5 alert-primary" role="alert" id="msg">
 
-                                </div>
+                            <div class="col-11 d-none" id="msgDiv1">
+                                <div class="alert alert-danger" role="alert" id="msg1"></div>
                             </div>
 
                             <div class="col-6 lable-text-color">
-                                <label class="form-label fs-4" >First Name</label>
+                                <label class="form-label fs-4">First Name</label>
                                 <input type="text" class="form-control" placeholder="ex:- Kamal" id="fname" />
                             </div>
 
@@ -66,43 +64,19 @@
                                 <input type="email" class="form-control" placeholder="ex:- Kamalperera@gmail.com" id="email" />
                             </div>
 
+                            <div class="col-11 lable-text-color">
+                                <label class="form-label fs-4">Username</label>
+                                <input type="text" class="form-control" placeholder="ex:- Kamalperera" id="uname" />
+                            </div>
+
                             <div class="col-11 lable-text-color ">
                                 <label class="form-label fs-4">Password</label>
                                 <input type="password" class="form-control" placeholder="ex:- **********" id="password" />
                             </div>
 
-                            <div class="col-6 lable-text-color">
+                            <div class="col-11 lable-text-color">
                                 <label class="form-label fs-4">Mobile</label>
                                 <input type="text" class="form-control" placeholder="ex:- 0714568963" id="mobile" />
-                            </div>
-
-                            <div class="col-5 lable-text-color">
-                                <label class="form-label fs-4">Gender</label>
-                                <select class="form-control" id="gender">
-                                    <option value="0">Select Your Gender</option>
-
-                                    <?php
-
-                                    require "connection.php";
-
-                                    $rs = Database::search("SELECT * FROM `gender`");
-
-                                    $n = $rs->num_rows;
-
-                                    for ($x = 0; $x < $n; $x++) {
-                                        $d = $rs->fetch_assoc();
-
-                                    ?>
-
-                                        <option value="<?php echo $d["id"]; ?>"><?php echo $d["gender_name"]; ?></option>
-
-                                    <?php
-
-                                    }
-
-                                    ?>
-
-                                </select>
                             </div>
 
                             <div class="col-11 col-lg-6 d-grid mt-3">
@@ -120,19 +94,19 @@
 
                     <!-- signinbox -->
 
-                    <div class="col-12 col-lg-6 d-none " id="signInBox">
-                        <div class="row g-2">
+                    <div class="col-12 col-lg-6 " id="signInBox">
+                        <div class="row g-2 ">
                             <div class="col-12 mt-3">
                                 <p class="title02">Sign In</p>
                             </div>
 
                             <?php
 
-                            $email = "";
+                            $username = "";
                             $password = "";
 
-                            if (isset($_COOKIE["email"])) {
-                                $email = $_COOKIE["email"];
+                            if (isset($_COOKIE["username"])) {
+                                $username = $_COOKIE["username"];
                             }
 
                             if (isset($_COOKIE["password"])) {
@@ -141,28 +115,32 @@
 
                             ?>
 
-                            <div class="col-12">
-                                <label class="form-label lable-text-color fs-4 ">Email</label>
-                                <input type="email" class="form-control" id="email2" value="<?php echo $email; ?>" />
+                            <div class="col-10 d-none" id="msgDiv2">
+                                <div class="alert alert-danger" role="alert" id="msg2"></div>
                             </div>
-                            <div class="col-12">
+
+                            <div class="col-10">
+                                <label class="form-label lable-text-color fs-4 ">Username</label>
+                                <input type="email" class="form-control" id="signinuname" value="<?php echo $username; ?>" />
+                            </div>
+                            <div class="col-10">
                                 <label class="form-label lable-text-color fs-4">Password</label>
-                                <input type="password" class="form-control" id="password2" value="<?php echo $password; ?>" />
+                                <input type="password" class="form-control" id="signinpassword" value="<?php echo $password; ?>" />
                             </div>
-                            <div class="col-6">
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="rememberme" />
+                            <div class="col-5">
+                                <div class="form-check">
+                                    <input class="form-check-input mt-2" type="checkbox" id="rememberme" />
                                     <label class="form-check-label lable-text-color fs-4" for="rememberme">Remember Me</label>
                                 </div>
                             </div>
-                            <div class="col-6 text-end">
-                                <a href="#" class="link-primary" onclick="forgotPassword();">Forgot Password?</a>
+                            <div class="col-5 text-end">
+                                <a href="#" class="link-primary fs-4">Forgot Password?</a>
                             </div>
-                            <div class="col-12 col-lg-6 d-grid mt-3">
+                            <div class="col-15 col-lg-5 d-grid mt-3">
                                 <button class="btn btn-primary fs-4" onclick="signIn();">Sign In</button>
                             </div>
-                            <div class="col-12 col-lg-6 d-grid mt-3">
-                                <button class="btn btn-danger fs-4" onclick="changeView();">New to eShop? Join Now</button>
+                            <div class="col-12 col-lg-5 d-grid mt-3">
+                                <button class="btn btn-danger fs-5" onclick="changeView();">New to Halgahawatta Hardware? Join Now</button>
                             </div>
                         </div>
                     </div>
@@ -174,10 +152,10 @@
 
             <!-- content -->
 
-       <!-- modal --> 
-       
+            <!-- modal -->
 
-             <div class="modal" tabindex="-1" id="forgotPasswordModal">
+
+            <!-- <div class="modal" tabindex="-1" id="forgotPasswordModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -219,18 +197,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- modal -->
 
             <!-- footer -->
             <div class="col-12 fixed-bottom d-none d-lg-block">
-                <p class="text-center text-danger fs-4">&copy; 2022 Halgahawatta Hardware.lk || All Rights Reserved. </p>
+                <p class="text-center text-light fs-4 fw-bold">&copy; 2024 Halgahawatta Hardware.lk || All Rights Reserved. </p>
             </div>
             <!-- footer -->
 
 
-            
+
         </div>
     </div>
 

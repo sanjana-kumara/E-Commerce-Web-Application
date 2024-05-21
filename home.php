@@ -30,10 +30,8 @@
                     Our Partners
                 </p>
 
-                <?php include "brand.php"?>
-
-                <h3>test</h3>
-
+                
+               
             </div>
 
 

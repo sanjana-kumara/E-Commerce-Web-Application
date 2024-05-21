@@ -7,99 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
     <title>Home | Halgahawatta hardaware</title>
 </head>
 
-<body class="body1">
+<body>
 
-    <div>
-        <div class="slideshow-container">
+    <div class="col-12">
+        <div class="row">
 
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/fevicol.jpg?resize=150%2C65&ssl=1"
-                    alt="fevicol" width="148" height="64">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/11-250x105-1.png?resize=150%2C63&ssl=1"
-                    alt="11-250x105" width="148" height="62">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/unnamed.jpg?resize=150%2C105&ssl=1"
-                    alt="unnamed" width="148" height="103">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/0.jpg?resize=150%2C150&ssl=1"
-                    alt="0" width="148" height="148">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/7-250x88-1.jpg?resize=150%2C53&ssl=1"
-                    alt="7-250x88" width="148" height="52">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/12-250x94-1.png?resize=150%2C56&ssl=1"
-                    alt="12-250x94" width="148" height="55">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/AP-logo1-250x63-1.png?resize=150%2C38&ssl=1"
-                    alt="AP-logo1-250x63" width="148" height="37">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/Arpico-250x124-1.jpg?resize=150%2C74&ssl=1"
-                    alt="Arpico-250x124" width="148" height="73">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/browns-for-web-250x159-1.jpg?resize=150%2C95&ssl=1"
-                    alt="browns-for-web-250x159" width="148" height="94">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/1.png?resize=150%2C59&ssl=1"
-                    alt="1" width="148" height="58">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/3-250x192-1.png?resize=150%2C115&ssl=1"
-                    alt="3-250x192" width="148" height="113">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/4-250x96-1.jpg?resize=150%2C58&ssl=1"
-                    alt="4-250x96" width="148" height="57">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/6-250x137-1.png?resize=150%2C82&ssl=1"
-                    alt="6-250x137" width="148" height="81">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride = "true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-active = "300ms">
+                        <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/3-250x192-1.png?resize=150%2C115&ssl=1" class="d-block w-25" alt="..." >
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/4-250x96-1.jpg?resize=150%2C58&ssl=1" class="d-block w-25" alt="...">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="https://i0.wp.com/hardwaremart.lk/wp-content/uploads/2021/10/6-250x137-1.png?resize=150%2C82&ssl=1" class="d-block w-25" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
 
         </div>
-        <br>
 
-        <div style="text-align:center">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
 
+<script src="bootstrap.js"></script>
+<!-- <script src="bootstrap.bundle.js"></script> -->
         <script src="script.js"></script>
     </div>
 
