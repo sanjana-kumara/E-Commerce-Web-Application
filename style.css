@@ -213,3 +213,83 @@ img {vertical-align: middle;}
     background-size: cover;
 } */ 
 
+/* Admin Panel */
+
+.admin_body{
+
+    background-image: url("resource/admin\ 2.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.adminlogin_body1 {
+    font-family: "Open Sans";
+  }
+  
+  a {
+    text-decoration: none;
+    outline: none;
+    color: #444;
+  }
+  
+  .form-03-main {
+    width: 500px;
+    display: block;
+    margin: 20px auto;
+    padding: 25px 50px 25px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  .logo {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .form-group {
+    padding: 20px 0px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+  }
+  
+  .form-group p {
+    margin: 0px;
+  }
+  
+  .form-control {
+    min-height: 45px;
+    box-shadow: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 2px solid#2b3990;
+  }
+  
+  ._btn_04 {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0px;
+    background: #2b3990;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  ._btn_04 a {
+    font-weight: bold;
+    font-size: px;
+    color: #fff;
+  } 
+ 
+/* Admin Panel */

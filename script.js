@@ -72,3 +72,31 @@ function signIn() {
   request.open("POST", "signInProcess.php", true);
   request.send(f);
 }
+
+function adminLogin(){
+
+  var adUname = document.getElementById("adminUsername");
+  var adPassword = document.getElementById("adminUserpassword");
+
+  var f = new FormData();
+  f.append("un",adUname.value);
+  f.append("pa",adPassword.value);
+
+  var request =new XMLHttpRequest();
+  request.onreadystatechange = function(){
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+      if (response == "Success") {
+        window.location = "adminHomePage.php";
+      } else {
+        document.getElementById("msg").innerHTML = response;
+        document.getElementById("msgDiv").className = "d-block";
+      }
+    }
+  }
+
+  request.open("POST","adminloginProcess.php",true);
+  request.send(f);
+
+}
