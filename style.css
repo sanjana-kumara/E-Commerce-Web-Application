@@ -293,3 +293,12 @@ img {vertical-align: middle;}
   } 
  
 /* Admin Panel */
+
+.umanagement{
+  margin-top: 50px;
+  width: 1700px;
+  height: 450px;
+  background-color: rgba(14, 13, 13, 0.507);
+  padding: 0px;
+  
+}
