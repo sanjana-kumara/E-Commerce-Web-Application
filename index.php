@@ -44,7 +44,7 @@
                             <div class="col-12">
                                 <p class="title02">Create New Account</p>
                             </div>
-
+                            
                             <div class="col-11 d-none" id="msgDiv1">
                                 <div class="alert alert-danger" role="alert" id="msg1"></div>
                             </div>

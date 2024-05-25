@@ -48,8 +48,12 @@ if (isset($_SESSION["ad"])) {
                                     <li class="nav-item">
                                         <a class="nav-link text-light fs-3" href="#">Oder Management</a>
                                     </li>
-                                </ul>
+                                </ul>                            
+
                             </div>
+                            <div class="offcanvas-end d-flex justify-content-center mb-4">
+                                    <button class="btn btn-success fs-3"><a href="index.php" class="fs-3 text-light fw-bold">Customer Login</a></button>
+                                </div>
                         </div>
 
                         <div class="col-5 mt-lg-1 mt-2 d-flex justify-content-lg-center">

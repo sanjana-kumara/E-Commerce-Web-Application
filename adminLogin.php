@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <div class="_btn_04 bg-success">
-                                <a href="#">Customer Login</a>
+                                <a href="index.php">Customer Login</a>
                             </div>
                         </div>
                     </div>

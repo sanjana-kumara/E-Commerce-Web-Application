@@ -33,16 +33,21 @@ function signUp() {
         document.getElementById("msg1").innerHTML = "Registration Successfully";
         document.getElementById("msg1").className = "alert alert-success";
         document.getElementById("msgDiv1").className = "d-block col-11";
-
+        reload();
       } else {
         document.getElementById("msg1").innerHTML = response;
         document.getElementById("msgDiv1").className = "d-block col-11";
+        
       }
     }
   }
 
   request.open("POST", "signUpProcess.php", true);
   request.send(f);
+}
+
+function reload(){
+  window.location.reload();
 }
 
 function signIn() {
