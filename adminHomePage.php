@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "connection.php";
 
 if (isset($_SESSION["ad"])) {
 
@@ -68,12 +68,77 @@ if (isset($_SESSION["ad"])) {
                 <!-- Admin User Management -->
 
                 <div class="row">
-                    <div class="col-6 umanagement">
-                        <div class="text-center fs-2 fw-bold text-light"> Users </div>
+                    <div class="umanagement">
+                        <div class="text-center text-light ">
+                            <p class="fs-1 fw-bold "> Users </p>
+                        </div>
                         <!-- Admin User Management -->
+                        <?php
+                        $rs = Database::search("SELECT * FROM `user` WHERE `user_type_id`='2' ");
+                        $num = $rs->num_rows;
+                        ?>
+
+                        <div class="row justify-content-center">
+                            <div class="col-11 ms-3 ">
+                                <table class="table table-active fw-bold">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th class="fw-bold fs-3">Id</th>
+                                            <th class="fw-bold fs-3">Username</th>
+                                            <th class="fw-bold fs-3">Email</th>
+                                            <th class="fw-bold fs-3">Mobile</th>
+                                            <th class="fw-bold fs-3">Status</th>
+                                            <th></th>
+                                        </tr>
+                                        <hr>
+                                    </thead>
+                                    <?php
+
+                                    for ($i = 0; $i < $num; $i++) {
+
+                                        $data = $rs->fetch_assoc();
+
+                                    ?>
+
+                                        <tbody>
+                                            <tr class="text-center">
+                                                <th class="fs-5"><?php echo $data['id']; ?></th>
+                                                <td class="fs-5"><?php echo $data['username']; ?></td>
+                                                <td class="fs-5"><?php echo $data['email']; ?></td>
+                                                <td class="fs-5"><?php echo $data['mobile']; ?></td>
+                                                <td class="fs-5">
+
+                                                    <?php
+
+                                                    if ($data['statues'] == 1) {
+                                                        echo ("Active");
+                                                    ?>
+                                                <td><button class="btn btn-danger fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Deactivate</button></td>
+
+                                            <?php
+                                                    } else {
+                                                        echo ("Deactive");
+                                            ?>
+                                                <td><button class="btn btn-success fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Activate</button></td>
+                                            <?php
+                                                    }
+
+                                            ?>
 
 
-                        
+                                            </td>
+                                            </tr>
+                                        </tbody>
+
+                                    <?php
+                                    }
+
+                                    ?>
+
+                                </table>
+                            </div>
+                        </div>
+
                         <!-- Admin User Management -->
 
                     </div>

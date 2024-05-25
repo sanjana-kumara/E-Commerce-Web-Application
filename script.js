@@ -100,3 +100,30 @@ function adminLogin(){
   request.send(f);
 
 }
+
+function status(id){
+  
+  
+  var request =new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+    if (request.readyState == 4 ) {
+      
+      var response = request.responseText;
+      // alert(response);
+
+      if (response == "Deactive") {
+        window.location.reload();
+      } else if(response == "Active"){
+        window.location.reload();
+      }else{
+        alert(response)
+      }
+
+    }
+  }  
+
+  request.open("GET","statusUserProcess.php?id=" + id ,true);
+  request.send();
+
+}

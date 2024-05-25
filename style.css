@@ -296,9 +296,10 @@ img {vertical-align: middle;}
 
 .umanagement{
   margin-top: 50px;
-  width: 1700px;
-  height: 450px;
+  width: 1800px;
+  height: 600px;
   background-color: rgba(14, 13, 13, 0.507);
   padding: 0px;
-  
+  margin-left: 10px;
 }
+
