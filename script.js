@@ -93,7 +93,7 @@ function adminLogin(){
       var response = request.responseText;
       // alert(response);
       if (response == "Success") {
-        window.location = "adminHomePage.php";
+        window.location = "admindashBoard.php";
       } else {
         document.getElementById("msg").innerHTML = response;
         document.getElementById("msgDiv").className = "d-block";
@@ -130,5 +130,21 @@ function status(id){
 
   request.open("GET","statusUserProcess.php?id=" + id ,true);
   request.send();
+
+}
+
+function custlogin(){
+
+  window.location = "index.php";
+
+}
+
+function catName(){
+
+  // alert("OK");
+
+  var cat_name = document.getElementById("catname");
+
+  alert(cat_name.value);
 
 }
