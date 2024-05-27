@@ -5,7 +5,7 @@ include "connection.php";
 $sub_cat = $_POST["sbn"];
 $sub_opt = $_POST["opt"];
 
-$opt_rs = Database::search("SELECT * FROM `category` WHERE `id`='".$sub_opt."' ");
+$opt_rs = Database::search("SELECT * FROM `category` WHERE `sub_cat_id`='".$sub_opt."' ");
 $opt_num = $opt_rs->num_rows;
 
 if ($opt_num == 1) {

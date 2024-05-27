@@ -351,3 +351,174 @@ img {vertical-align: middle;}
   height: 130px;
 
 }
+
+/* stock Management */
+
+.img_body{
+
+  width: 350px;
+
+}
+
+.recentStock_body{
+
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 20px;
+
+}
+
+.recent_text_1{
+
+  color: rgba(0, 73, 214, 1);
+
+}
+
+.recent_text_2{
+
+  color: rgba(252, 48, 48, 0.94);
+
+}
+
+.recent_text_3{
+
+  color: rgba(31, 31, 17, 0.856);
+  font-weight: 300;
+
+}
+
+.stock_imgbtn {
+
+background-color: rgba(31, 134, 35, 1);
+font-weight: bold;
+color: white;
+border-radius: 50px;
+height: 40px;
+
+}
+
+.stock_imgbtn_1 {
+
+background-color: rgba(168, 15, 125, 0.83);
+font-weight: bold;
+color: white;
+border-radius: 50px;
+height: 40px;
+
+}
+
+.select_body{
+
+  background-color: rgba(47, 30, 149, 0.9);
+
+}
+
+.select_body1{
+
+  background-color: #928a8a9a;
+
+}
+
+.stock_se_btn{
+
+  background-color: rgba(106, 93, 93, 0.9);
+
+}
+
+.stock_se_input{
+
+  background-color: rgba(217, 217, 217, 1);
+
+}
+
+.star{
+
+  width: 50px;
+  height: 50px;
+
+}
+
+.btn_addto__cart{
+
+  background-color: rgba(222, 207, 73, 1);
+
+}
+
+.qty{
+
+  color: rgba(64, 60, 60, 1);
+
+}
+
+.de_cost {
+
+  color: rgba(227, 177, 0, 0.97);
+
+}
+
+.tought_text{
+
+  color: rgba(134, 15, 15, 1);
+
+}
+
+.buy_now_btn{
+
+  background-color: rgba(252, 48, 48, 0.94);
+
+}
+
+.price{
+
+  color: rgba(47, 30, 149, 0.9);
+
+}
+
+.bran_text1{
+
+  color: rgba(10, 31, 103, 1);
+  font-weight: bold;
+
+}
+.bran_text2{
+
+  color: rgba(167, 14, 14, 0.83);
+  font-weight: bold;
+
+}
+
+/* add to cart */
+
+.cart_div {
+
+  background-color: rgba(209, 209, 209, 0.63);
+
+}
+
+.cart_body{
+
+  background-color: rgba(68, 68, 68, 1);
+
+}
+
+.cart_prduct_price {
+
+  color:rgba(5, 0, 255, 1);
+
+}
+
+.addcart_Btn{
+
+  background-color: rgba(167, 14, 14, 0.83);
+  font-weight: bold;
+
+}
+
+/* @media(min-width:500px){
+
+  .first_img{
+
+    min-height: 500px;
+
+  }
+
+} */

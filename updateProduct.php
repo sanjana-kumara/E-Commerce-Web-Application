@@ -37,163 +37,8 @@ if (isset($_SESSION["ad"])) {
                 </div>
 
             </div>
-            <!-- Alert Box -->
-
-            <div class="row">
-
-                <div class="col-12 col-lg-6 mt-2">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-10">
-
-                            <div class="row justify-content-center">
-
-                                <div class="col-10 mt-4">
-
-                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Category Name" id="catname">
-
-                                </div>
-
-                                <div class="col-8 mt-4 mb-3">
-
-                                    <button class="btn w-100 border border-3 border-dark rounded-5 fw-bold fs-4 prmabtn" onclick="catName();">Add Category</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-12 col-lg-6 mt-2">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-10">
-
-                            <div class="row justify-content-center">
-
-                                <div class="col-10 mt-4">
-
-                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Brand Name" id="brand">
-
-                                </div>
-
-                                <div class="col-8 mt-4 mb-3">
-
-                                    <button class="btn w-100 border border-3 border-dark rounded-5 fw-bold fs-4 prmabtn" onclick="brand();">Add Brand</button>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-12 col-lg-6 mt-3">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-10">
-
-                            <div class="row justify-content-center">
-
-                                <div class="col-10 mt-4">
-
-                                    <select id="catopt" class="form-select form-control fs-4 fs-5 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example">
-
-                                        <?php
-
-                                        $rs = Database::search("SELECT * FROM `category` ");
-                                        $num = $rs->num_rows;
-
-                                        ?>
-
-                                        <option selected>Select Category</option>
-
-                                        <?php
-
-                                        for ($i = 0; $i < $num; $i++) {
-
-                                            $data = $rs->fetch_assoc();
-
-                                        ?>
-
-                                            <option value="<?php echo $data["cat_id"]; ?>"><?php echo $data["cat_name"]; ?></option>
-
-                                        <?php
-
-                                        }
-
-                                        ?>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="col-10 mt-4">
-
-                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fs-5 fw-bold prmainput" placeholder="Enter Sub Category Name" id="subcat_name">
-
-                                </div>
-
-                                <div class="col-8 mt-4 mb-3">
-
-                                    <button class="btn w-100 border border-3 border-dark rounded-5 fw-bold fs-5 fs-4 prmabtn" onclick="sub_cat();">Add Sub Category</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-12 col-lg-6 mt-3">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-10">
-
-                            <div class="row justify-content-center">
-
-                                <div class="col-10 mt-4">
-
-                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Size" id="size">
-
-                                </div>
-
-                                <div class="col-8 mt-4 mb-3">
-
-                                    <button class="btn w-100 border border-3 border-dark rounded-5 fw-bold fs-4 prmabtn" onclick="size();">Add Size</button>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+            <!-- Alert Box -->          
+           
             <div class="row col-12 ">
 
                 <div class="m-1">
@@ -480,7 +325,7 @@ if (isset($_SESSION["ad"])) {
                                             <div class="col-lg-5">
 
                                                 <input type="file" class="d-none" id="imgUploader" multiple />
-                                                <label for="imgUploader" class="btn btn-warning w-100 fs-4 fw-bold" onclick="uploadeProductImage();">Upload Product Image</label>
+                                                <label for="imgUploader" class="btn btn-warning w-100 fs-4 fw-bold" onclick="uploadeProductImage();">Update Product Image</label>
 
                                             </div>
 
@@ -498,7 +343,7 @@ if (isset($_SESSION["ad"])) {
 
                                             <div class="col-lg-5">
 
-                                                <button class="btn btn-primary w-100 fs-4 fw-bold">Submit Product </button>
+                                                <button class="btn btn-primary w-100 fs-4 fw-bold">Update Product </button>
 
                                             </div>
 

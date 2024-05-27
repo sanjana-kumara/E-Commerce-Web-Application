@@ -42,7 +42,7 @@
                                 <a href="admindashBoard.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Dashboard</a>
                                 <a href="adminUserManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">User Management</a>
                                 <a href="admimProductManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Product Management</a>
-                                <a href="#" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Stock Management</a>
+                                <a href="adminStockManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Stock Management</a>
                                 <a href="#" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3">Oder Management</a>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
         <div class="d-none d-lg-block col-lg-6 mt-2">
             <div class="col-12 justify-content-center d-flex">
                 <input type="text" class="form form-control" placeholder="Search" id="">
-                <button class="btn btn-outline-warning col-3 ms-2">Search</button>
+                <button class="btn btn-outline-warning col-3 ms-2 me-3 fw-bold fs-3">Search</button>
             </div>
         </div>
 

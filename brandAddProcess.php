@@ -12,7 +12,7 @@ if (empty($brand)) {
     echo("Brand Name have been 20 Characters Only");
 }else {
     
-    $rs = Database::search("SELECT * FROM `brand` WHERE `name`='".$brand."' ");
+    $rs = Database::search("SELECT * FROM `brand` WHERE `brand_name`='".$brand."' ");
     $num = $rs->num_rows;
 
     if ($num == 1) {
@@ -20,7 +20,7 @@ if (empty($brand)) {
     } else {
         echo("Succes");
 
-        Database::iud("INSERT INTO `brand`(`name`) VALUES ('".$brand."') ");
+        Database::iud("INSERT INTO `brand`(`brand_name`) VALUES ('".$brand."') ");
         
     }
     
