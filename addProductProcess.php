@@ -17,7 +17,15 @@ $discount = $_POST["dis"];
 $branad_name = $_POST["br"];
 $size = $_POST["sz"];
 
-
+if (empty($pname)) {
+    echo("Please Enter Product Name");
+}elseif (empty($pdescription)) {
+    echo("Please Enter Product Description");
+}elseif (empty($price)){
+    echo("Please Enter Price");
+}elseif (empty($quantity)) {
+    echo("Please Enter Avalabal")
+}
 
 $d = new DateTime();
 $tz = new DateTimeZone("Asia/Colombo");
