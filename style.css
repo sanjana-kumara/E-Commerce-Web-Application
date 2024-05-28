@@ -274,23 +274,6 @@ img {vertical-align: middle;}
     border-radius: 20px;
     border: 2px solid#2b3990;
   }
-  
-  ._btn_04 {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 0px;
-    background: #2b3990;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 16px;
-    color: #fff;
-  }
-  
-  ._btn_04 a {
-    font-weight: bold;
-    font-size: px;
-    color: #fff;
-  } 
  
 /* Admin Panel */
 

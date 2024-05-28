@@ -81,7 +81,7 @@ if (isset($_SESSION["ad"])) {
 
                                                     <?php
 
-                                                    $rs = Database::search("SELECT * FROM `user` WHERE `user_type_id`='2' ");
+                                                    $rs = Database::search("SELECT * FROM `user` ");
                                                     $num = $rs->num_rows;
 
                                                     for ($i = 0; $i < $num; $i++) {

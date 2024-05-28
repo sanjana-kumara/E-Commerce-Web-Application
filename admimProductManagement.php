@@ -229,10 +229,10 @@ if (isset($_SESSION["ad"])) {
                                             <div class="mt-4">
 
                                                 <div class="form-floating">
-                                                    <textarea class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                                    <label class="fs-4 fw-bold" for="floatingTextarea2" id="pdescription">Product Description</label>
+                                                    <textarea class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Leave a comment here" id="description" style="height: 100px"></textarea>
+                                                    <label class="fs-4 fw-bold" for="floatingTextarea2" >Product Description</label>
                                                 </div>
-
+                 
                                             </div>
 
                                             <div class="mt-4">
@@ -266,7 +266,7 @@ if (isset($_SESSION["ad"])) {
 
                                             <div class="mt-4">
 
-                                                <select class="form-select form-control fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="pcatname" onchange="loadSubCat();">
+                                                <select class="form-select form-control fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="pcatname">
 
                                                     <option selected>Select Category Name</option>
 
@@ -301,7 +301,7 @@ if (isset($_SESSION["ad"])) {
 
                                                     <?php
 
-                                                    $sub_cat_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON `category`.`cat_id` = `sub_category`.`category_id` WHERE `category`.`cat_id` = '" . $cat_data["cat_id"] . "' ");
+                                                    $sub_cat_rs = Database::search("SELECT * FROM `sub_category` ");
                                                     $sub_cat_num = $sub_cat_rs->num_rows;
 
                                                     for ($i = 0; $i < $sub_cat_num; $i++) {
@@ -334,8 +334,8 @@ if (isset($_SESSION["ad"])) {
 
                                                         <div class="form-check">
 
-                                                            <input class="form-check-input fs-2 mt-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label fw-bold fs-5 mt-2" for="flexRadioDefault1"> Original </label>
+                                                            <input class="form-check-input fs-2 mt-2" type="radio" name="flexRadioDefault" id="c">
+                                                            <label class="form-check-label fw-bold fs-5 mt-2" for="c"> Original </label>
 
                                                         </div>
 
@@ -345,8 +345,8 @@ if (isset($_SESSION["ad"])) {
 
                                                         <div class="form-check">
 
-                                                            <input class="form-check-input fs-2 mt-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label fw-bold fs-5 mt-2" for="flexRadioDefault1"> Local </label>
+                                                            <input class="form-check-input fs-2 mt-2" type="radio" name="flexRadioDefault" id="u">
+                                                            <label class="form-check-label fw-bold fs-5 mt-2" for="u"> Local </label>
 
                                                         </div>
 
@@ -368,7 +368,7 @@ if (isset($_SESSION["ad"])) {
 
                                                     <div class="mb-4">
 
-                                                        <select class="form-select form-control fs-5 fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="pcatname" onload="loadSubCat();">
+                                                        <select class="form-select form-control fs-5 fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="pbrandname" >
 
                                                             <option selected>Select Brand Name</option>
 
@@ -400,7 +400,7 @@ if (isset($_SESSION["ad"])) {
 
                                                     <div class="mb-4">
 
-                                                        <select class="form-select form-control fs-5 fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="pcatname" onload="loadSubCat();">
+                                                        <select class="form-select form-control fs-5 fs-4 border-3 border-dark shadow-lg fw-bold prmainput" aria-label="Default select example" id="psize" >
 
                                                             <option selected>Select Size Name</option>
 
@@ -498,7 +498,7 @@ if (isset($_SESSION["ad"])) {
 
                                             <div class="col-lg-5">
 
-                                                <button class="btn btn-primary w-100 fs-4 fw-bold">Submit Product </button>
+                                                <button class="btn btn-primary w-100 fs-4 fw-bold" onclick="addProduct();">Submit Product</button>
 
                                             </div>
 

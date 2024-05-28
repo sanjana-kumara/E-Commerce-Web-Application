@@ -1,5 +1,7 @@
 <?php
 
+include "connection.php";
+
 session_start();
 
 if (isset($_SESSION["ad"])) {
@@ -79,7 +81,7 @@ if (isset($_SESSION["ad"])) {
                                         </div>
                                         <div class="col-10 mb-3 mt-3">
 
-                                            <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
+                                            <a href="viewProduct.php"><button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button></a>
 
                                         </div>
                                         <div class="col-10 mb-3">

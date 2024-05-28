@@ -70,7 +70,7 @@ if (isset($_SESSION["ad"])) {
 
                             <div class="row justify-content-center">
 
-                                <div class="col-lg-4 mt-3">
+                                <div class="col-md-4 mt-3">
 
                                     <span class="fs-1 fw-bold">Product Name</span>
 
@@ -165,7 +165,7 @@ if (isset($_SESSION["ad"])) {
 
                                             <div class="col-lg-6">
 
-                                                <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart"> Add To Cart </button>
+                                                <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart"> Add To Cart </button></a>
 
                                             </div>
 

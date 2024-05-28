@@ -108,7 +108,7 @@ if (isset($_SESSION["ad"])) {
                                         <div class="col-11 col-md-10 mt-3 mb-3">
 
                                             <?php
-                                            $rs = Database::search("SELECT * FROM `user` WHERE `user_type_id`='2' ");
+                                            $rs = Database::search("SELECT * FROM `user`");
                                             $num = $rs->num_rows;
                                             ?>
                                             <table class="table fw-bold table-hover text-center">

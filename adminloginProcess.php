@@ -12,7 +12,7 @@ if (empty($uname)) {
     echo ("Please Enter Your Admin Password");
 }else{
 
-    $rs = Database::search("SELECT * FROM `user` WHERE `username`='".$uname."' AND `password`='".$password."' AND `user_type_id`='1' AND `statues`='1' ");
+    $rs = Database::search("SELECT * FROM `user` WHERE `username`='".$uname."' AND `password`='".$password."' AND `statues`='1' ");
     $num = $rs -> num_rows;
 
     if ($num == 1) {
