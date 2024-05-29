@@ -25,11 +25,38 @@
                 <div class="offcanvas-header">
 
                     <div class="row">
-                        <div class="col-4 mt-4 ms-1"><img src="resource/user.png"></div>
-                        <div class="row col-7 mt-5 me-2">
-                            <div class="fs-3 text-center"> Sanjana </div>
-                            <div class="col-8"> sanjananisalkumara@gmail.com </div>
-                        </div>
+
+
+                        <?php
+
+                        // session_start();
+
+                        if (isset($_SESSION["ad"])) {
+
+                            $data = $_SESSION["ad"];
+                        ?>
+                            <div class="col-4 mt-4 ms-1"><img src="resource/user.png"></div>
+                            <div class="row col-7 mt-5 me-2">
+                                <div class="fs-3 text-center"> <?php echo $data["user_name"]; ?> </div>
+                                <div class="col-8"> <?php echo $data["email"]; ?> </div>
+                            </div>
+
+                        <?php
+
+                        } else {
+
+                        ?>
+
+                            <div>
+                                <a href="adminLogin.php"><button class="btn btn-primary fs-4 ms-5">Please Login Now</button></a>
+                            </div>
+
+                        <?php
+                        }
+
+
+                        ?>
+
                         <hr class="mt-3">
                     </div>
 
@@ -49,8 +76,33 @@
                     </div>
 
                 </div>
-                <button class="btn btn-danger col-10 offcanvas-bottom fs-4 fw-bold ms-3 mb-3">Logout</button>
-                <button class="btn btn-success col-10 offcanvas-bottom fs-4 fw-bold ms-3 mb-3" onclick="custlogin();">Customer Login</button>
+
+                <?php
+
+                if (isset($_SESSION["ad"])) {
+
+                    $data = $_SESSION["ad"];
+                ?>
+                    <button class="btn btn-danger col-10 offcanvas-bottom fs-4 fw-bold ms-3 mb-3" onclick="logOut();">Logout</button>
+                    <button class="btn btn-success col-10 offcanvas-bottom fs-4 fw-bold ms-3 mb-3" onclick="custlogin();">Customer Login</button>
+
+                <?php
+
+                } else {
+
+                ?>
+
+                    <div>
+                        <a href="adminLogin.php"><button class="btn btn-primary fs-4 ms-5">Please Login Now</button></a>
+                    </div>
+
+                <?php
+
+                }
+
+
+                ?>
+
             </div>
         </div>
 

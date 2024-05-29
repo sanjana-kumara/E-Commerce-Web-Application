@@ -1,10 +1,4 @@
-<?php
-
-session_start();
-if (isset($_SESSION["ad"])) {
-
-?>
-
+<!-- 
     <!DOCTYPE html>
     <html lang="en">
 
@@ -210,12 +204,4 @@ if (isset($_SESSION["ad"])) {
     </body>
 
     </html>
-
-<?php
-
-} else {
-    echo ("Invalide Admin User");
-}
-
-
-?>
+ -->

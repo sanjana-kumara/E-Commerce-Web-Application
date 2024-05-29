@@ -135,32 +135,6 @@ function verify() {
   request.send(f);
 }
 
-// function adminLogin() {
-//   var adUname = document.getElementById("adminUsername");
-//   var adPassword = document.getElementById("adminUserpassword");
-
-//   var f = new FormData();
-//   f.append("un", adUname.value);
-//   f.append("pa", adPassword.value);
-
-//   var request = new XMLHttpRequest();
-//   request.onreadystatechange = function () {
-//     if (request.readyState == 4 && request.status == 200) {
-//       var response = request.responseText;
-//       // alert(response);
-//       if (response == "Success") {
-//         window.location = "admindashBoard.php";
-//       } else {
-//         document.getElementById("msg").innerHTML = response;
-//         document.getElementById("msgDiv").className = "d-block";
-//       }
-//     }
-//   };
-
-//   request.open("POST", "adminloginProcess.php", true);
-//   request.send(f);
-// }
-
 function status(id) {
   var request = new XMLHttpRequest();
 
@@ -185,6 +159,23 @@ function status(id) {
 
 function custlogin() {
   window.location = "index.php";
+}
+
+function logOut() {
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      if (response == "success") {
+        window.location = "adminLogin.php";
+      }
+    }
+  };
+
+  request.open("POST", "signOutProcess.php", true);
+  request.send();
 }
 
 function catName() {
@@ -305,7 +296,7 @@ function size() {
       // alert(response);
 
       if (response == "Succes") {
-        document.getElementById("msg").innerHTML = "Succefully Add Brand Name";
+        document.getElementById("msg").innerHTML = "Succefully Add Size Name";
         document.getElementById("msg").className =
           "col-12 text-center mt-4 alert alert-success border border-2 border-dark shadow-lg";
         document.getElementById("msgDiv").className = "d-block";
@@ -361,8 +352,7 @@ function uploadeProductImage() {
   };
 }
 
-function addProduct(){
-
+function addProduct() {
   var pname = document.getElementById("pname");
   var pdescription = document.getElementById("description");
   var price = document.getElementById("pprice");
@@ -374,7 +364,7 @@ function addProduct(){
 
   if (document.getElementById("c").checked) {
     condition = 1;
-  } else if(document.getElementById("u").checked) {
+  } else if (document.getElementById("u").checked) {
     condition = 2;
   }
   var discount = document.getElementById("pdiscount");
@@ -383,42 +373,250 @@ function addProduct(){
   var img = document.getElementById("imgUploader");
 
   var f = new FormData();
-  f.append("pn",pname.value)
-  f.append("pd",pdescription.value)
-  f.append("pr",price.value)
-  f.append("qty",quantity.value)
-  f.append("dc",delivery_cost.value)
-  f.append("cn",category_name.value)
-  f.append("scn",sub_category_name.value)
-  f.append("con",condition)
-  f.append("dis",discount.value)
-  f.append("br",branad_name.value)
-  f.append("sz",size.value)
+  f.append("pn", pname.value);
+  f.append("pd", pdescription.value);
+  f.append("pr", price.value);
+  f.append("qty", quantity.value);
+  f.append("dc", delivery_cost.value);
+  f.append("cn", category_name.value);
+  f.append("scn", sub_category_name.value);
+  f.append("con", condition);
+  f.append("dis", discount.value);
+  f.append("br", branad_name.value);
+  f.append("sz", size.value);
 
   var fil_count = img.files.length;
 
   for (var x = 0; x < fil_count; x++) {
-
-    f.append("image"+x,img.files[x]);
-      
+    f.append("image" + x, img.files[x]);
   }
 
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function (){
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      if (response == "success") {
+        window.location.reload();
+      } else {
+        alert(response);
+        window.location.reload();
+      }
+    }
+  };
 
-    if (request.readyState == 4 && request.status == 200 ) {
+  request.open("POST", "addProductProcess.php", true);
+
+  request.send(f);
+}
+
+function productblock(x) {
+  
+  var request =new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+
+      if (response == "Deactive") {
+        window.location.reload();
+      } else if(response == "Active") {
+        window.location.reload();
+      }else{
+        alert(response);
+     }
+        
+    }
+  };
+
+  request.open("GET", "productBlockProcess.php?status=" + x, true);
+  request.send();
+
+}
+
+function loadStock(x){
+
+  var page = x;
+
+  var f = new FormData();
+  f.append("p",page);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function(){
+    if (request.readyState == 4 && request.status == 200) {
       
       var response = request.responseText;
-      alert(response);
+      // alert(response);
+
+      document.getElementById("pid").innerHTML = response;
 
     }
+  }
+
+  request.open("POST","loadStockProcess.php",true);
+  request.send(f);
+
+}
+
+function searchProduct(x){
+
+var page = x;
+var product = document.getElementById("product");
+
+var f = new FormData();
+f.append("p",product.value);
+f.append("pg",page);
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = function(){
+
+  if (request.readyState == 4 && request.status == 200) {
+    
+    var response = request.responseText;
+    // alert(response);
+    document.getElementById("pid").innerHTML = response;
 
   }
 
+}
 
-  request.open("POST","addProductProcess.php",true);
+request.open("POST","admin_SearchProductProcess.php",true);
+request.send(f);
 
-  request.send(f);
+}
 
+function loadMainImg(id){
+
+  var sample_img = document.getElementById("productImg"+id).src;
+  var main_img = document.getElementById("mainImg");
+
+  main_img.style.backgroundImage = "url("+sample_img+")";
+
+}
+
+function check_value(qty){
+
+  var input = document.getElementById("qty_input"); 
+
+  if (input.value <= 0) {
+    alert("Quantity must be 01 or more.");
+    input.value = 1;
+  } else if(input.value > qty){
+    alert("Insyfficient Quantity.");
+    input.value = qty;
+  }
+
+}
+
+function qty_inc(qty){
+
+  var input = document.getElementById("qty_input"); 
+
+  if (input.value < qty) {
+    var newValue = parseInt(input.value)+1;
+    input.value = newValue;
+  } else {
+    alert("Maximum Quantity has achieved.");
+    input.value = qty;
+  }
+
+}
+
+function qty_dec(){
+
+  var input = document.getElementById("qty_input"); 
+
+  if (input.value > 1) {
+    var newValue = parseInt(input.value)-1;
+    input.value = newValue;
+  } else {
+    alert("Minimum Quantity has achieved.");
+    input.value = 1;
+  }
+
+}
+
+// customer singup process
+
+var forgotPasswordModal;
+
+function forgotPassword() {
+  var email = document.getElementById("email2");
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if ((request.status == 200) & (request.readyState == 4)) {
+      var text = request.responseText;
+
+      if (text == "success") {
+        document.getElementById("msg1").innerHTML = text;
+        document.getElementById("msgdiv1").className = "d-block";
+      } else {
+        alert("Verification Code is Successfully Sent Please Check Your Email");
+        var modal = document.getElementById("fpmodal");
+        forgotPasswordModal = new bootstrap.Modal(modal);
+        forgotPasswordModal.show();
+      }
+    }
+  };
+
+  request.open("GET", "forgotPasswordProcess.php?e=" + email.value, true);
+  request.send();
+}
+
+function showpassword1() {
+  var textfield = document.getElementById("np");
+  var button = document.getElementById("npb");
+
+  if (textfield.type == "password") {
+    textfield.type = "text";
+    button.innerHTML = "Hide";
+  } else {
+    textfield.type = "password";
+    button.innerHTML = "Show";
+  }
+}
+
+function showpassword2() {
+  var textfield = document.getElementById("np1");
+  var button = document.getElementById("npb1");
+
+  if (textfield.type == "password") {
+    textfield.type = "text";
+    button.innerHTML = "Hide";
+  } else {
+    textfield.type = "password";
+    button.innerHTML = "Show";
+  }
+}
+
+function resetpassword() {
+  var email = document.getElementById("email2");
+  var newpassword = document.getElementById("np");
+  var retypepassword = document.getElementById("np1");
+  var verification = document.getElementById("vcode");
+
+  var form = new FormData();
+  form.append("e", email.value);
+  form.append("np", newpassword.value);
+  form.append("rp", retypepassword.value);
+  form.append("vc", verification.value);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.status == 200 && request.readyState == 4) {
+      var response = request.responseText;
+      if (response == "Success") {
+        alert(response);
+      } else {
+        alert("Password Updated Successfully.");
+        forgotPasswordModal.hide();
+      }
+    }
+  };
+
+  request.open("POST", "resetPasswordProcess.php", true);
+  request.send(form);
 }

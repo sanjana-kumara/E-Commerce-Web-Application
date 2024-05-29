@@ -22,7 +22,7 @@ if (isset($_SESSION["ad"])) {
 
     </head>
 
-    <body>
+    <body onload="loadStock(0);">
 
         <div class="container-fluid">
 
@@ -46,196 +46,109 @@ if (isset($_SESSION["ad"])) {
 
                             </div>
 
-                            <div class="row justify-content-center p-3">
+                            <div class="row justify-content-center p-3 gap-3">
 
-                                <!-- Imgage 1 -->
+                                <?php
 
-                                <div class="col-md-3 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
+                                $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` DESC LIMIT 8 ");
+                                $product_num = $product_rs->num_rows;
 
-                                    <div class="row">
+                                for ($x = 0; $x < $product_num; $x++) {
 
-                                        <div class="col-lg-5 ms-md-2 mt-2 ">
+                                    $product_data = $product_rs->fetch_assoc();
 
-                                            <img class="mt-2 border border-3 border-dark rounded-4 shadow-lg" src="https://via.placeholder.com/300" alt="img">
+                                ?>
+
+
+                                    <div class="col-md-3 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
+
+                                        <div class="row justify-content-center">
+
+                                            <?php
+
+                                            $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
+                                            $img_data = $img_rs->fetch_assoc();
+
+                                            ?>
+
+                                            <div class="col-lg-7 ms-md-2 mt-2 mb-4">
+
+                                                <img class="mt-2 border border-3 border-dark rounded-4 shadow-lg h-100 w-100" src="<?php echo ($img_data["img_path"]); ?>" alt="img">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row justify-content-center text-center">
+
+                                            <div class="col-10">
+
+                                                <span class="fs-3 fw-bold recent_text_1"> <?php echo ($product_data["name"]); ?> </span>
+
+                                            </div>
+                                            <div class="col-10 ">
+
+                                                <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span>
+
+                                            </div>
+                                            <div class="col-10">
+
+                                                <span class="fs-4 fw-bold recent_text_3"> <?php echo ($product_data["quantity"]); ?> Items In Stock </span>
+
+                                            </div>
+                                            <div class="col-10 mb-3 mt-3">
+
+                                                <a href="updateProduct.php"><button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button></a>
+
+                                            </div>
+                                            <div class="col-10 mb-3">
+
+                                                <a href=<?php echo "singleProductview.php?pid=".($product_data['id']); ?>><button class="fs-4 stock_imgbtn_1 w-75 shadow-lg" >View Product</button></a>
+
+                                            </div>
+
+                                            <?php
+
+                                            $btn_status = $product_data["statues"];
+
+                                            if ($btn_status == 0) {
+                                            ?>
+
+                                                <div class="col-10 mb-3">
+
+                                                    <a href="#"><button class="fs-4 stock_imgbtn_2 w-75 shadow-lg" id="block<?php echo $product_data['id']; ?>" onclick="productblock('<?php echo $product_data['id']; ?>');">Block Product</button></a>
+
+                                                </div>
+
+                                            <?php
+
+                                            } elseif ($btn_status == 1) {
+
+                                            ?>
+
+                                                <div class="col-10 mb-3">
+
+                                                    <a href="#"><button class="fs-4 stock_imgbtn_3 w-75 shadow-lg" id="block<?php echo $product_data['id']; ?>" onclick="productblock('<?php echo $product_data['id']; ?>');">Active Product</button></a>
+
+                                                </div>
+
+                                            <?php
+
+                                            }
+
+                                            ?>
+
 
                                         </div>
 
                                     </div>
 
-                                    <div class="row justify-content-center text-center">
 
-                                        <div class="col-10">
+                                <?php
 
-                                            <span class="fs-1 fw-bold recent_text_1"> Product name </span>
+                                }
 
-                                        </div>
-                                        <div class="col-10 ">
-
-                                            <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                        </div>
-                                        <div class="col-10">
-
-                                            <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                        </div>
-                                        <div class="col-10 mb-3 mt-3">
-
-                                            <a href="viewProduct.php"><button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button></a>
-
-                                        </div>
-                                        <div class="col-10 mb-3">
-
-                                            <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!-- Imgage 1 -->
-                                <!-- Imgage 1 -->
-
-                                <div class="col-md-3 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                                    <div class="row">
-
-                                        <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                            <img class="mt-2 border border-3 border-dark rounded-4 shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center text-center">
-
-                                        <div class="col-10">
-
-                                            <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                        </div>
-                                        <div class="col-10 ">
-
-                                            <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                        </div>
-                                        <div class="col-10">
-
-                                            <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                        </div>
-                                        <div class="col-10 mb-3 mt-3">
-
-                                            <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                        </div>
-                                        <div class="col-10 mb-3">
-
-                                            <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!-- Imgage 1 -->
-                                <!-- Imgage 1 -->
-
-                                <div class="col-md-3 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                                    <div class="row">
-
-                                        <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                            <img class="mt-2 border border-3 rounded-4 border-dark shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center text-center">
-
-                                        <div class="col-10">
-
-                                            <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                        </div>
-                                        <div class="col-10 ">
-
-                                            <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                        </div>
-                                        <div class="col-10">
-
-                                            <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                        </div>
-                                        <div class="col-10 mb-3 mt-3">
-
-                                            <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                        </div>
-                                        <div class="col-10 mb-3">
-
-                                            <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!-- Imgage 1 -->
-                                <!-- Imgage 1 -->
-
-                                <div class="col-md-3 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                                    <div class="row">
-
-                                        <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                            <img class="mt-2 border border-3 rounded-4 border-dark shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center text-center">
-
-                                        <div class="col-10">
-
-                                            <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                        </div>
-                                        <div class="col-10 ">
-
-                                            <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                        </div>
-                                        <div class="col-10">
-
-                                            <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                        </div>
-                                        <div class="col-10 mb-3 mt-3">
-
-                                            <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                        </div>
-                                        <div class="col-10 mb-3">
-
-                                            <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <!-- Imgage 1 -->
+                                ?>
 
                             </div>
 
@@ -259,7 +172,7 @@ if (isset($_SESSION["ad"])) {
 
                                 <div class="col-4 d-none d-md-block">
 
-                                    <input type="text" class="border border-2 border-dark shadow-lg form-control h-100 fs-3 fw-bold stock_se_input" placeholder="Product Name">
+                                    <input type="text" class="border border-2 border-dark shadow-lg form-control h-100 fs-3 fw-bold stock_se_input" placeholder="Product Name" id="product" onkeyup="searchProduct(0)">
 
                                 </div>
                                 <div class="col-2 d-none d-md-block">
@@ -287,288 +200,12 @@ if (isset($_SESSION["ad"])) {
 
             </div>
 
-            <div class="row">
-
-                <div class="col-12">
-
-                    <div class="row justify-content-center p-4">
-
-                        <!-- Imgage 1 -->
-
-                        <div class="col-md- border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                            <div class="row">
-
-                                <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                    <img class="mt-2 border border-3 border-dark rounded-4 shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row justify-content-center text-center">
-
-                                <div class="col-10">
-
-                                    <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                </div>
-                                <div class="col-10 ">
-
-                                    <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                </div>
-                                <div class="col-10">
-
-                                    <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                </div>
-                                <div class="col-10 mb-3 mt-3">
-
-                                    <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                </div>
-                                <div class="col-10 mb-3">
-
-                                    <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Imgage 1 -->
-                        <!-- Imgage 1 -->
-
-                        <div class="col-md-2 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                            <div class="row">
-
-                                <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                    <img class="mt-2 border border-3 border-dark rounded-4 shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row justify-content-center text-center">
-
-                                <div class="col-10">
-
-                                    <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                </div>
-                                <div class="col-10 ">
-
-                                    <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                </div>
-                                <div class="col-10">
-
-                                    <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                </div>
-                                <div class="col-10 mb-3 mt-3">
-
-                                    <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                </div>
-                                <div class="col-10 mb-3">
-
-                                    <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Imgage 1 -->
-                        <!-- Imgage 1 -->
-
-                        <div class="col-md-2 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                            <div class="row">
-
-                                <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                    <img class="mt-2 border border-3 rounded-4 border-dark shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row justify-content-center text-center">
-
-                                <div class="col-10">
-
-                                    <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                </div>
-                                <div class="col-10 ">
-
-                                    <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                </div>
-                                <div class="col-10">
-
-                                    <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                </div>
-                                <div class="col-10 mb-3 mt-3">
-
-                                    <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                </div>
-                                <div class="col-10 mb-3">
-
-                                    <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Imgage 1 -->
-                        <!-- Imgage 1 -->
-
-                        <div class="col-md-2 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                            <div class="row">
-
-                                <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                    <img class="mt-2 border border-3 rounded-4 border-dark shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row justify-content-center text-center">
-
-                                <div class="col-10">
-
-                                    <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                </div>
-                                <div class="col-10 ">
-
-                                    <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                </div>
-                                <div class="col-10">
-
-                                    <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                </div>
-                                <div class="col-10 mb-3 mt-3">
-
-                                    <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                </div>
-                                <div class="col-10 mb-3">
-
-                                    <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Imgage 1 -->
-                        <!-- Imgage 1 -->
-
-                        <div class="col-md-2 border border-3 border-dark shadow-lg ms-md-4 bg-light rounded-5 img_body">
-
-                            <div class="row">
-
-                                <div class="col-lg-5 ms-md-2 mt-2 ">
-
-                                    <img class="mt-2 border border-3 rounded-4 border-dark shadow-lg" src="https://via.placeholder.com/300" alt="img">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row justify-content-center text-center">
-
-                                <div class="col-10">
-
-                                    <span class="fs-1 fw-bold recent_text_1"> Product name </span>
-
-                                </div>
-                                <div class="col-10 ">
-
-                                    <span class="fs-2 fw-bold recent_text_2"> Price </span>
-
-                                </div>
-                                <div class="col-10">
-
-                                    <span class="fs-4 fw-bold recent_text_3"> 10 Items In Stock </span>
-
-                                </div>
-                                <div class="col-10 mb-3 mt-3">
-
-                                    <button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button>
-
-                                </div>
-                                <div class="col-10 mb-3">
-
-                                    <button class="fs-4 stock_imgbtn_1 w-75 shadow-lg">View Product</button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Imgage 1 -->
-
-                    </div>
-
-                </div>
+            <div class="row" id="pid">
+            
+            <!-- Loaded Product From loadeStockProcess.php -->
 
             </div>
 
-            <!-- pagination -->
-
-            <div class="row justify-content-center">
-
-                <div class="col-2 d-none d-md-block">
-
-                    <div class="row col-4 h-100 w-100">
-
-                        <nav aria-label="Page navigation example">
-
-                            <ul class="pagination fw-bold fs-3">
-
-                                <li class="page-item disabled">
-                                    <a class="page-link fs-3">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link fs-3" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link fs-3" href="#">2</a></li>
-                                <li><a class="page-link fs-3">......</a></li>
-                                <li class="page-item"><a class="page-link fs-3" href="#">5</a></li>
-                                <li class="page-item">
-                                    <a class="page-link fs-3" href="#">Next</a>
-                                </li>
-
-                            </ul>
-
-                        </nav>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- pagination -->
 
         </div>
 

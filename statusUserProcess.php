@@ -5,7 +5,7 @@ include "connection.php";
 $id = $_GET["id"];
 // echo($id);
 
-$rs = Database::search("SELECT * FROM `user` WHERE `id`='".$id."' AND `user_type_id`='2' ");
+$rs = Database::search("SELECT * FROM `user` WHERE `id`='".$id."' "); 
 $num = $rs->num_rows;
 
 if ($num == 1) {

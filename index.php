@@ -102,11 +102,11 @@
 
                             <?php
 
-                            $username = "";
+                            $email = "";
                             $password = "";
 
-                            if (isset($_COOKIE["username"])) {
-                                $username = $_COOKIE["username"];
+                            if (isset($_COOKIE["email"])) {
+                                $email = $_COOKIE["email"];
                             }
 
                             if (isset($_COOKIE["password"])) {
@@ -120,12 +120,12 @@
                             </div>
 
                             <div class="col-10">
-                                <label class="form-label lable-text-color fs-4 ">Username</label>
-                                <input type="email" class="form-control" id="signinuname" value="<?php echo $username; ?>" />
+                                <label class="form-label lable-text-color fs-4 ">Email</label>
+                                <input type="email" class="form-control" id="email2" value="<?php echo $email; ?>" />
                             </div>
                             <div class="col-10">
                                 <label class="form-label lable-text-color fs-4">Password</label>
-                                <input type="password" class="form-control" id="signinpassword" value="<?php echo $password; ?>" />
+                                <input type="password" class="form-control" id="password2" value="<?php echo $password; ?>" />
                             </div>
                             <div class="col-5">
                                 <div class="form-check">
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="col-5 text-end">
-                                <a href="#" class="link-primary fs-4">Forgot Password?</a>
+                                <a href="#" class="link-primary fs-4" onclick="forgotPassword();">Forgot Password?</a>
                             </div>
                             <div class="col-15 col-lg-5 d-grid mt-3">
                                 <button class="btn btn-primary fs-4" onclick="signIn();">Sign In</button>
@@ -155,7 +155,7 @@
             <!-- modal -->
 
 
-            <!-- <div class="modal" tabindex="-1" id="forgotPasswordModal">
+            <div class="modal" tabindex="-1" id="forgotPasswordModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- modal -->
 
