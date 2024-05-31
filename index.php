@@ -152,10 +152,8 @@
 
             <!-- content -->
 
-            <!-- modal -->
-
-
-            <div class="modal" tabindex="-1" id="forgotPasswordModal">
+           <!-- modal -->
+           <div class="modal" tabindex="-1" id="fpmodal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -170,22 +168,21 @@
                                     <label class="form-label">New Password</label>
                                     <div class="input-group mb-3">
                                         <input type="password" class="form-control" id="np"/>
-                                       <button class="btn btn-outline-secondary" type="button" id="npb" onclick="shownewPassword();"><i class="bi bi-eye"></i> </button>
-                                      
+                                        <button id="npb" class="btn btn-outline-secondary" type="button" onclick="showpassword1();">Show</button>
                                     </div>
                                 </div>
 
                                 <div class="col-6">
                                     <label class="form-label">Re-type Password</label>
                                     <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="rnp"/>
-                                        <button class="btn btn-outline-secondary" type="button" id="rnpb" onclick="showretypePassword();"><i class="bi bi-eye"></i> </button>
+                                        <input type="password" class="form-control" id="np1"/>
+                                        <button id="npb1" class="btn btn-outline-secondary" type="button" onclick="showpassword2();">Show</button>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label class="form-label">Verification Code</label>
-                                    <input type="text" class="form-control" id="vc"/>
+                                    <input type="text" class="form-control" id="vcode"/>
                                 </div>
 
                             </div>
@@ -193,14 +190,12 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="resetPassword();">Reset</button>
+                            <button type="button" class="btn btn-primary" onclick="resetpassword();">Reset</button>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- modal -->
-
             <!-- footer -->
             <div class="col-12 fixed-bottom d-none d-lg-block">
                 <p class="text-center text-light fs-4 fw-bold">&copy; 2024 Halgahawatta Hardware.lk || All Rights Reserved. </p>
