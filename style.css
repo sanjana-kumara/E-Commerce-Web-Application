@@ -2,7 +2,6 @@
     background-image: url("resource/background-body.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
 
 }
@@ -25,16 +24,14 @@
 
 .title01 {
     font-family: 'Poppins', sans-serif;
-    font-size: 48px;
-    letter-spacing: 3px;
     color: rgb(255, 255, 255);
     font-weight: bold;
+    font-size: 40px;
 }
 
 .background {
     background-image: url("resource/background\ 1.png");
-    background-size: contain;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     height: 700px;
 
@@ -59,9 +56,9 @@
 
   background-image: url("resource/usericon.png");
   background-repeat: no-repeat;
-  background-size: cover;  
-  height: 80px;
-  width: 80px;
+  background-size:cover;  
+  height: 90px;
+  width: 90px;
   border-radius: 200px;
 
 }
@@ -211,12 +208,12 @@ height: 200px;
     text-align: center;
   }
   
-  .logo {
+  /* .logo {
     display: block;
     margin: 20px auto;
     width: 100px;
     height: 100px;
-  }
+  } */
   
   .form-group {
     padding: 20px 0px;

@@ -94,7 +94,9 @@ function adminVerification() {
 
       if (response == "Success") {
         alert("Please Go to Email to find the Verification Code.");
-        var adminVerificationModel = document.getElementById( "adminVerificationModel");
+        var adminVerificationModel = document.getElementById(
+          "adminVerificationModel"
+        );
         av = new bootstrap.Modal(adminVerificationModel);
         av.show();
       } else {
@@ -160,7 +162,6 @@ function custlogin() {
 }
 
 function logOut() {
-
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
@@ -173,6 +174,24 @@ function logOut() {
   };
 
   request.open("POST", "signOutProcess.php", true);
+  request.send();
+}
+
+function logOut2() {
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      if (response == "success") {
+        window.location = "index.php";
+      }
+    }
+    
+  };
+
+  request.open("POST", "userSignoutProcess.php", true);
   request.send();
 }
 
@@ -409,8 +428,7 @@ function addProduct() {
 }
 
 function productblock(x) {
-  
-  var request =new XMLHttpRequest();
+  var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
@@ -418,120 +436,100 @@ function productblock(x) {
 
       if (response == "Deactive") {
         window.location.reload();
-      } else if(response == "Active") {
+      } else if (response == "Active") {
         window.location.reload();
-      }else{
+      } else {
         alert(response);
-     }
-        
+      }
     }
   };
 
   request.open("GET", "productBlockProcess.php?status=" + x, true);
   request.send();
-
 }
 
-function loadStock(x){
-
+function loadStock(x) {
   var page = x;
 
   var f = new FormData();
-  f.append("p",page);
+  f.append("p", page);
 
   var request = new XMLHttpRequest();
-  request.onreadystatechange = function(){
+  request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
-      
       var response = request.responseText;
       // alert(response);
 
       document.getElementById("pid").innerHTML = response;
-
     }
-  }
+  };
 
-  request.open("POST","loadStockProcess.php",true);
+  request.open("POST", "loadStockProcess.php", true);
   request.send(f);
-
 }
 
-function searchProduct(x){
+function searchProduct(x) {
+  var page = x;
+  var product = document.getElementById("product");
 
-var page = x;
-var product = document.getElementById("product");
+  var f = new FormData();
+  f.append("p", product.value);
+  f.append("pg", page);
 
-var f = new FormData();
-f.append("p",product.value);
-f.append("pg",page);
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+      document.getElementById("pid").innerHTML = response;
+    }
+  };
 
-var request = new XMLHttpRequest();
-request.onreadystatechange = function(){
-
-  if (request.readyState == 4 && request.status == 200) {
-    
-    var response = request.responseText;
-    // alert(response);
-    document.getElementById("pid").innerHTML = response;
-
-  }
-
+  request.open("POST", "admin_SearchProductProcess.php", true);
+  request.send(f);
 }
 
-request.open("POST","admin_SearchProductProcess.php",true);
-request.send(f);
-
-}
-
-function loadMainImg(id){
-
-  var sample_img = document.getElementById("productImg"+id).src;
+function loadMainImg(id) {
+  var sample_img = document.getElementById("productImg" + id).src;
   var main_img = document.getElementById("mainImg");
 
-  main_img.style.backgroundImage = "url("+sample_img+")";
-
+  main_img.style.backgroundImage = "url(" + sample_img + ")";
 }
 
-function check_value(qty){
-
-  var input = document.getElementById("qty_input"); 
+function check_value(qty) {
+  var input = document.getElementById("qty_input");
 
   if (input.value <= 0) {
     alert("Quantity must be 01 or more.");
     input.value = 1;
-  } else if(input.value > qty){
+  } else if (input.value > qty) {
     alert("Insyfficient Quantity.");
     input.value = qty;
   }
-
 }
 
-function qty_inc(qty){
-
-  var input = document.getElementById("qty_input"); 
+function qty_inc(qty) {
+  var input = document.getElementById("qty_input");
 
   if (input.value < qty) {
-    var newValue = parseInt(input.value)+1;
+    var newValue = parseInt(input.value) + 1;
     input.value = newValue;
   } else {
     alert("Maximum Quantity has achieved.");
     input.value = qty;
   }
-
 }
 
-function qty_dec(){
-
-  var input = document.getElementById("qty_input"); 
+function qty_dec() {
+  var input = document.getElementById("qty_input");
 
   if (input.value > 1) {
-    var newValue = parseInt(input.value)-1;
+    var newValue = parseInt(input.value) - 1;
     input.value = newValue;
   } else {
     alert("Minimum Quantity has achieved.");
     input.value = 1;
   }
-
 }
 
 // customer singup process
@@ -539,14 +537,12 @@ function qty_dec(){
 var forgotPasswordModal;
 
 function forgotPassword() {
-
   var email = document.getElementById("email2");
 
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
     if (request.status == 200 && request.readyState == 4) {
-
       var response = request.responseText;
 
       if (response == "Success") {
@@ -559,7 +555,6 @@ function forgotPassword() {
         document.getElementById("msgdiv1").className = "d-block";
         alert(response);
       }
-
     }
   };
 
@@ -621,4 +616,90 @@ function resetpassword() {
 
   request.open("POST", "resetPasswordProcess.php", true);
   request.send(f);
+}
+
+function showpasswordicon() {
+  var textfield = document.getElementById("pass");
+  var butn_icon = document.getElementById("bti");
+
+  if (textfield.type == "password") {
+    textfield.type = "text";
+    butn_icon.className = "fa-solid fa-face-smile-beam fw-bold text-white fs-4";
+
+  } else {
+    textfield.type = "password";
+    butn_icon.className = "fa-sharp fa-thin fa-face-awesome fw-bold text-white fs-4";
+  }
+
+}
+
+function uploadeProfileImg(){
+
+  var img = document.getElementById("profileImage");
+  img.onchange = function(){
+
+    var file = this.files[0];
+    var url = window.URL.createObjectURL(file);
+
+    document.getElementById("img").src = url;
+
+  }
+
+}
+
+function updateUserDeatils(){
+
+  var first_name = document.getElementById("fn");
+  var last_name = document.getElementById("ln");
+  var user_name = document.getElementById("un");
+  var password = document.getElementById("pass");
+  var email = document.getElementById("em");
+  var ad_lin1 = document.getElementById("ln1");
+  var ad_lin2 = document.getElementById("ln2");
+  var city = document.getElementById("city");
+  var distric = document.getElementById("dis");
+  var postal_code = document.getElementById("pc");
+  var mobile_no = document.getElementById("mn");
+  var p_img = document.getElementById("profileImage");
+
+
+  var f = new FormData(); 
+  f.append("fn",first_name.value);
+  f.append("ln",last_name.value);
+  f.append("pa",password.value);
+  f.append("em",email.value);
+  f.append("ln1",ad_lin1.value);
+  f.append("ln2",ad_lin2.value);
+  f.append("ct",city.value);
+  f.append("dis",distric.value);
+  f.append("ps",postal_code.value);
+  f.append("mb",mobile_no.value);
+  f.append("im",p_img.files[0]);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+
+      var response = request.responseText;   
+      if (response == "Upadated" || response == "Saved") {
+
+        window.location.reload();
+                
+      } else if (response == "You Have not Select any Images") {
+
+        window.location.reload();
+        
+      }else{   
+             
+        window.location.reload();
+
+      }
+            
+    }
+
+  }
+
+  request.open("POST","profileDeatilsUploadeProcess.php",true);
+  request.send(f);
+
 }
