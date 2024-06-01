@@ -1,3 +1,5 @@
+    <?php include "connection.php"; ?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -27,7 +29,8 @@
                     <div class="row">
 
                         <?php
-                            session_start();
+
+                        session_start();
                         if (isset($_SESSION["u"])) {
 
                         ?>
@@ -51,7 +54,7 @@
                                         <span class="fw-bold text-light link-warning fs-3 ms-4">Shop</span>
 
                                     </div>
-                                    <div class="col-1 me-2">
+                                    <div class="col-2">
 
                                         <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
 
@@ -117,10 +120,7 @@
 
             <!-- Header -->
 
-
             <?php include "header.php"; ?>
-            <?php include "connection.php"; ?>
-
             <!-- Header -->
 
             <div class="row">
@@ -191,205 +191,79 @@
 
                 </div>
 
+
                 <div class="row">
 
                     <div class="col-12 mb-2">
 
                         <div class="row justify-content-center gap-2">
 
-                            <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
+                            <!-- New Product Img -->
 
-                                <div class="row justify-content-center">
+                            <?php
 
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                            $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` DESC LIMIT 5 ");
+                            $product_num = $product_rs->num_rows;
 
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
+                            for ($i = 0; $i < $product_num; $i++) {
+
+                                $product_data = $product_rs->fetch_assoc();
+
+                            ?>
+
+                                <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
+
+                                    <div class="row justify-content-center">
+
+                                        <?php
+
+                                        $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
+                                        $img_data = $img_rs->fetch_assoc();
+
+                                        ?>
+
+                                        <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+
+                                            <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-10 text-center mt-2">
+
+                                            <span class="fs-3 fw-bold recent_text_1"><?php echo ($product_data["name"]); ?></span><br>
+                                            <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span><br>
+                                            <span class="fs-4 fw-bold qty">Discount <?php echo ($product_data["Discount"]); ?></span>
+
+                                        </div>
+
+                                        <div class="col-10 mt-2">
+
+                                            <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
+
+                                        </div>
+
+                                        <div class="col-10 mt-2 mb-4">
+
+                                            <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
+                                                <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
+
+                                        </div>
 
                                     </div>
 
                                 </div>
 
-                                <div class="row justify-content-center">
+                            <?php
 
-                                    <div class="col-10 text-center mt-2">
+                            }
 
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
+                            ?>
 
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-4 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <!--New Product Image -->                            
 
                         </div>
 
@@ -414,200 +288,73 @@
 
                         <div class="row justify-content-center gap-2">
 
-                            <div class="col-md-2 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
+                            <!-- Choose Your Products Img -->
 
-                                <div class="row justify-content-center">
+                            <?php
 
-                                    <div class="col-9 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                            $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` ASC ");
+                            $product_num = $product_rs->num_rows;
 
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
+                            for ($i = 0; $i < $product_num; $i++) {
+
+                                $product_data = $product_rs->fetch_assoc();
+
+                            ?>
+
+                                <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
+
+                                    <div class="row justify-content-center">
+
+                                        <?php
+
+                                        $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
+                                        $img_data = $img_rs->fetch_assoc();
+
+                                        ?>
+
+                                        <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+
+                                            <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-10 text-center mt-2">
+
+                                            <span class="fs-3 fw-bold recent_text_1"><?php echo ($product_data["name"]); ?></span><br>
+                                            <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span><br>
+                                            <span class="fs-4 fw-bold qty">Discount <?php echo ($product_data["Discount"]); ?></span>
+
+                                        </div>
+
+                                        <div class="col-10 mt-2">
+
+                                            <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
+
+                                        </div>
+
+                                        <div class="col-10 mt-2 mb-4">
+
+                                            <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
+                                                <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
+
+                                        </div>
 
                                     </div>
 
                                 </div>
 
-                                <div class="row justify-content-center">
+                            <?php
 
-                                    <div class="col-10 text-center mt-2">
+                            }
 
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
+                            ?>
 
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-9 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                        <img src="resource/icons8-add-image-96.png" class="home_img">
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row justify-content-center">
-
-                                    <div class="col-10 text-center mt-2">
-
-                                        <span class="fs-2 fw-bold recent_text_1">Product Name</span><br>
-                                        <span class="fs-2 fw-bold recent_text_2">Price</span><br>
-                                        <span class="fs-4 fw-bold qty">Discount 30%</span>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2">
-
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                    </div>
-
-                                    <div class="col-10 mt-2 mb-4">
-
-                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <!-- Choose Your Products Img --> 
+                            
 
                         </div>
 

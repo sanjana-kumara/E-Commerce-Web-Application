@@ -36,6 +36,50 @@ if (isset($_SESSION["u"])) {
 
         <div class="container-fluid">
 
+            <div class="row header_body">
+
+                <div class="col-12">
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="row justify-content-end mt-4">
+
+                                <div class="col-1">
+
+                                    <span class="fw-bold text-light link-warning fs-3">Home</span>
+
+                                </div>
+                                <div class="col-1">
+
+                                    <span class="fw-bold text-light link-warning fs-3">Newsroom</span>
+
+                                </div>
+                                <div class="col-1">
+
+                                    <span class="fw-bold text-light link-warning fs-3 ms-4">Shop</span>
+
+                                </div>
+                                <div class="col-2">
+
+                                    <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr class="fs-2 border-warning border border-4 mt-3">
+
+            </div>
+
+
             <?php include "header.php" ?>
 
             <div class="row col-12">

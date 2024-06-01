@@ -16,14 +16,10 @@
 
     <?php
 
-    include "connection.php";
 
     if (isset($_SESSION["u"])) {
 
         $data = $_SESSION["u"];
-
-        $img_rs = Database::search("SELECT * FROM `profile_img` WHERE `user_id`='" . $data["id"] . "' ");
-        $img_data = $img_rs->fetch_assoc();
 
     ?>
 
@@ -49,7 +45,12 @@
 
                                     <div class="col-md-4">
 
-                                        <button class="usericon border border-3 border-dark shadow-lg mt-2" data-bs-toggle="dropdown" data-bs-auto-close="outside" style="background-image:url('<?php echo $img_data["img_path"] ?>');"></button>
+                                        <button class="usericon border border-3 border-dark shadow-lg mt-2" data-bs-toggle="dropdown" data-bs-auto-close="outside" style="background-image:url('<?php
+
+                                                                                                                                                                                                $img_rs = Database::search("SELECT * FROM `profile_img` WHERE `user_id`='" . $data["id"] . "' ");
+                                                                                                                                                                                                $img_data = $img_rs->fetch_assoc();
+
+                                                                                                                                                                                                echo $img_data["img_path"] ?>');"></button>
 
                                         <ul class="dropdown-menu bg-black">
 
@@ -65,7 +66,7 @@
 
                                     <div class="col-8 mt-2 d-none d-md-block">
 
-                                        <span class="fs-3 fw-bold mt-3 text-white"><?php echo $data["username"]; ?></span><br>
+                                        <span class="fs-3 fw-bold mt-3 text-white">&nbsp;&nbsp;<?php echo $data["username"]; ?></span><br>
                                         <span class="fs-6 fw-bold mt-3 tex_color"><?php echo $data["email"]; ?></span>
 
                                     </div>
@@ -128,7 +129,7 @@
 
     } else {
 
-        ?>
+    ?>
 
         <div class="row">
 
@@ -152,7 +153,7 @@
 
                                     <div class="col-md-4">
 
-                                        <button class="usericon border border-3 border-dark shadow-lg mt-2" data-bs-toggle="dropdown" data-bs-auto-close="outside" style="background-image:url('<?php echo $img_data["img_path"] ?>');"></button>
+                                        <button class="usericon border border-3 border-dark shadow-lg mt-2" data-bs-toggle="dropdown" data-bs-auto-close="outside"></button>
 
                                         <ul class="dropdown-menu bg-black">
 
@@ -166,10 +167,10 @@
 
                                     </div>
 
-                                    <div class="col-8 mt-2 d-none d-md-block">
+                                    <div class="col-8 mt-4 d-none d-md-block">
 
-                                        <span class="fs-3 fw-bold mt-3 text-white">Welcom</span><br>
-                                        <span class="fs-6 fw-bold mt-3 tex_color">Hi</span>
+                                        <span class="fs-3 fw-bold mt-3 text-white">&nbsp;&nbsp;WELOCOME </span><br>
+                                        <span class="fs-6 fw-bold mt-3 tex_color">Halgahawatta Hardware</span>
 
                                     </div>
 
@@ -227,7 +228,7 @@
 
         </div>
 
-    <?php 
+    <?php
 
     }
 
