@@ -181,14 +181,12 @@ function logOut2() {
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
-
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
       if (response == "success") {
         window.location = "index.php";
       }
     }
-    
   };
 
   request.open("POST", "userSignoutProcess.php", true);
@@ -496,6 +494,68 @@ function loadMainImg(id) {
   main_img.style.backgroundImage = "url(" + sample_img + ")";
 }
 
+// Product Update (updateProduct.php)
+
+function changeProductImage() {
+  var image = document.getElementById("imgUploader");
+
+  image.onchange = function () {
+    var file_count = image.files.length;
+
+    if (file_count <= 4) {
+      for (var x = 0; x < file_count; x++) {
+        var file = this.files[x];
+
+        var url = window.URL.createObjectURL(file);
+
+        document.getElementById("i" + x).src = url;
+      }
+    } else {
+      alert(
+        file_count +
+          "Files.You are Process to uploade Only 4 Or Less than 4 Files..."
+      );
+    }
+  };
+}
+
+function changeProductDeatiles() {
+  var pdescription = document.getElementById("description");
+  var price = document.getElementById("pprice");
+  var quantity = document.getElementById("pqty");
+  var delivery_cost = document.getElementById("pdiliver");
+  var discount = document.getElementById("pdiscount");
+  var img = document.getElementById("imgUploader");
+
+  var f = new FormData();
+  f.append("pd", pdescription.value);
+  f.append("pr", price.value);
+  f.append("qu", quantity.value);
+  f.append("dc", delivery_cost.value);
+  f.append("dis", discount.value);
+
+  var fil_count = img.files.length;
+
+  for (var z = 0; z < fil_count; z++) {
+    f.append("i" + z, img.files[x]);
+  }
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 2) {
+      var response = request.responseText;
+
+      alert(response);
+    }
+  };
+
+  request.open("POST", "updateProductDeatiles.php", true);
+  request.send(f);
+}
+
+// Product Update (updateProduct.php)
+
 function check_value(qty) {
   var input = document.getElementById("qty_input");
 
@@ -625,30 +685,24 @@ function showpasswordicon() {
   if (textfield.type == "password") {
     textfield.type = "text";
     butn_icon.className = "fa-solid fa-face-smile-beam fw-bold text-white fs-4";
-
   } else {
     textfield.type = "password";
-    butn_icon.className = "fa-sharp fa-thin fa-face-awesome fw-bold text-white fs-4";
+    butn_icon.className =
+      "fa-sharp fa-thin fa-face-awesome fw-bold text-white fs-4";
   }
-
 }
 
-function uploadeProfileImg(){
-
+function uploadeProfileImg() {
   var img = document.getElementById("profileImage");
-  img.onchange = function(){
-
+  img.onchange = function () {
     var file = this.files[0];
     var url = window.URL.createObjectURL(file);
 
     document.getElementById("img").src = url;
-
-  }
-
+  };
 }
 
-function updateUserDeatils(){
-
+function updateUserDeatils() {
   var first_name = document.getElementById("fn");
   var last_name = document.getElementById("ln");
   var user_name = document.getElementById("un");
@@ -662,44 +716,46 @@ function updateUserDeatils(){
   var mobile_no = document.getElementById("mn");
   var p_img = document.getElementById("profileImage");
 
-
-  var f = new FormData(); 
-  f.append("fn",first_name.value);
-  f.append("ln",last_name.value);
-  f.append("pa",password.value);
-  f.append("em",email.value);
-  f.append("ln1",ad_lin1.value);
-  f.append("ln2",ad_lin2.value);
-  f.append("ct",city.value);
-  f.append("dis",distric.value);
-  f.append("ps",postal_code.value);
-  f.append("mb",mobile_no.value);
-  f.append("im",p_img.files[0]);
+  var f = new FormData();
+  f.append("fn", first_name.value);
+  f.append("ln", last_name.value);
+  f.append("pa", password.value);
+  f.append("em", email.value);
+  f.append("ln1", ad_lin1.value);
+  f.append("ln2", ad_lin2.value);
+  f.append("ct", city.value);
+  f.append("dis", distric.value);
+  f.append("ps", postal_code.value);
+  f.append("mb", mobile_no.value);
+  f.append("im", p_img.files[0]);
 
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
-
-      var response = request.responseText;   
+      var response = request.responseText;
       if (response == "Upadated" || response == "Saved") {
-
         window.location.reload();
-                
       } else if (response == "You Have not Select any Images") {
-
         window.location.reload();
-        
-      }else{   
-             
+      } else {
         window.location.reload();
-
       }
-            
     }
+  };
 
-  }
-
-  request.open("POST","profileDeatilsUploadeProcess.php",true);
+  request.open("POST", "profileDeatilsUploadeProcess.php", true);
   request.send(f);
-
 }
+
+// function updateproduct(id){
+
+// var pid = id;
+
+// var f = new FormData();
+// f.append("id",pid);
+
+// var request = new XMLHttpRequest();
+
+// request.open("POST","",true);
+
+// }

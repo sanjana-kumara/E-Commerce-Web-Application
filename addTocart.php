@@ -145,7 +145,10 @@ if (isset($_SESSION["ad"])) {
 <?php
 
 } else {
-    echo ("Invalide Admin User");
+
+    header("location:adminLogin.php");
+
+    // echo ("Invalide Admin User");
 }
 
 

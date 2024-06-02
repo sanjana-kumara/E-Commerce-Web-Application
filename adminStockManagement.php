@@ -98,7 +98,7 @@ if (isset($_SESSION["ad"])) {
                                             </div>
                                             <div class="col-10 mb-3 mt-3">
 
-                                                <a href="updateProduct.php"><button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button></a>
+                                                <a href=<?php echo "updateProduct.php?pid=".($product_data['id']); ?> ><button class="fs-4 stock_imgbtn w-75 shadow-lg">Update Product</button></a>
 
                                             </div>
                                             <div class="col-10 mb-3">
@@ -217,7 +217,9 @@ if (isset($_SESSION["ad"])) {
 
 } else {
 
-    echo ("Invalide Admin User");
+    header("location:adminLogin.php");
+
+    // echo ("Invalide Admin User");
 }
 
 

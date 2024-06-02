@@ -44,8 +44,8 @@ if (empty($pname)) {
     $d->setTimezone($tz);
     $date = $d->format("Y-m-d H:i:s");
 
-    Database::iud("INSERT INTO `product`(`name`,`description`,`price`,`quantity`,`delivery_cost`,`Discount`,`datetime_add`,`statues`,`category_id`,`brand_id`,`size_id`,`admin_email`)
-VALUES ('" . $pname . "','" . $pdescription . "','" . $price . "','" . $quantity . "','" . $delivery_cost . "','" . $discount . "','" . $date . "','1','" . $category_name . "','" . $branad_name . "','" . $size . "','".$email."') ");
+    Database::iud("INSERT INTO `product`(`name`,`description`,`price`,`quantity`,`delivery_cost`,`Discount`,`datetime_add`,`statues`,`category_id`,`brand_id`,`size_id`,`admin_email`,`condition_con_id`)
+VALUES ('" . $pname . "','" . $pdescription . "','" . $price . "','" . $quantity . "','" . $delivery_cost . "','" . $discount . "','" . $date . "','1','" . $category_name . "','" . $branad_name . "','" . $size . "','".$email."','".$condition."') ");
 
     echo ("Successfully Add this Product");
 

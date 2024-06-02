@@ -330,6 +330,8 @@ if (isset($_SESSION["ad"])) {
 
                                                     <h2 class="text-center fw-bold mb-2">Select Product Condition</h2>
 
+                                                    
+
                                                     <div class="col-md-3 col-5">
 
                                                         <div class="form-check">
@@ -529,7 +531,10 @@ if (isset($_SESSION["ad"])) {
 <?php
 
 } else {
-    echo ("Invalide Admin User");
+
+    header("location:adminLogin.php");
+
+    // echo ("Invalide Admin User");
 }
 
 
