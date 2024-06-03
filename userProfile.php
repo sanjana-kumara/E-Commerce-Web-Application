@@ -42,7 +42,7 @@ if (isset($_SESSION["u"])) {
 
                     <div class="row">
 
-                        <div class="col-12">
+                        <div class="col-12 d-none d-lg-block">
 
                             <div class="row justify-content-end mt-4">
 
@@ -173,8 +173,8 @@ if (isset($_SESSION["u"])) {
                                     <div class="input-group">
 
                                         <input type="password" id="pass" class="form-control fs-4 fw-bold" placeholder="Password" value="<?php echo $user_data["password"]; ?>" readonly>
-                                        <span class="input-group-text bg-dark">
-                                            <i class="fa-solid fa-face-smile-beam fw-bold text-white fs-4" id="bti" onclick="showpasswordicon();"></i>
+                                        <span class="input-group-text bg-dark" id="passicon" onclick="showpasswordicon();">
+                                        <i class="fa-sharp fa-solid fa-eye fw-bold text-white fs-4" ></i>
                                         </span>
 
                                     </div>

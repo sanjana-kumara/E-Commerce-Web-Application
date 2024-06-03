@@ -51,7 +51,6 @@
 }
 
 /* header.php */
-
 .usericon{
 
   background-image: url("resource/usericon.png");
@@ -62,6 +61,17 @@
   border-radius: 200px;
 
 }
+.usericonadmin{
+
+  background-image: url("resource/usericon.png");
+  background-repeat: no-repeat;
+  background-size:cover;  
+  height: 50px;
+  width: 50px;
+  border-radius: 300px;
+
+}
+
 
 .carticon{
 

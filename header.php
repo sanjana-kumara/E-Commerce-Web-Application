@@ -54,11 +54,16 @@
 
                                         <ul class="dropdown-menu bg-black">
 
-                                            <li><a class="dropdown-item text-white fs-4 fw-bold" href="home.php">Shop &nbsp; <i class="material-icons">&#xe563;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="userProfile.php">My Account &nbsp; <i class="material-icons">&#xe813;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#">My Oder &nbsp; <i class="material-icons">&#xeb3f;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#">My Reviews &nbsp;<i class="material-icons">&#xe83a;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#" onclick="logOut2();">Log Out &nbsp;<i class="material-icons">&#xe8c6;</i></a></li>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="userProfile.php"><i class="fa-solid fa-user fa-bounce fs-4 mt-2"></i>&nbsp;&nbsp;&nbsp; My Profile </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="home.php"><i class="fa-sharp fa-solid fa-shop fa-beat fs-5"></i>&nbsp;&nbsp;&nbsp;Shop </a>
+                                            <hr class="border border-3 border-white"> 
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
+                                            <li><a class="dropdown-item text-white link-warning fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>
+                                            <hr class="border border-3 border-white">
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#" onclick="logOut2();"><i class="fa-solid fa-arrow-right-from-bracket fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Log Out </a>
 
                                         </ul>
 
@@ -75,7 +80,7 @@
 
                             </div>
 
-                            <div class="col-4 d-none d-md-block">
+                            <div class="col-2 d-none d-md-block">
 
                                 <button class="carticon border border-3 border-dark shadow-lg mt-2"></button>
 
@@ -157,11 +162,16 @@
 
                                         <ul class="dropdown-menu bg-black">
 
-                                            <li><a class="dropdown-item text-white fs-4 fw-bold" href="home.php">Shop &nbsp; <i class="material-icons">&#xe563;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="userProfile.php">My Account &nbsp; <i class="material-icons">&#xe813;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#">My Oder &nbsp; <i class="material-icons">&#xeb3f;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#">My Reviews &nbsp;<i class="material-icons">&#xe83a;</i></a></li>
-                                            <li><a class="dropdown-item text-white fs-5 fw-bold" href="#" onclick="logOut2();">Log Out &nbsp;<i class="material-icons">&#xe8c6;</i></a></li>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="userProfile.php"><i class="fa-solid fa-user fa-bounce fs-4 mt-2"></i>&nbsp;&nbsp;&nbsp; My Profile </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="home.php"><i class="fa-sharp fa-solid fa-shop fa-beat fs-5"></i>&nbsp;&nbsp;&nbsp;Shop </a>
+                                            <hr class="border border-3 border-white"> 
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
+                                            <li><a class="dropdown-item text-white link-warning fs-5 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>
+                                            <hr class="border border-3 border-white">
+                                            <li><a class="dropdown-item link-warning text-white fs-5 fw-bold" href="#" onclick="logOut2();"><i class="fa-solid fa-arrow-right-from-bracket fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Log Out </a>
 
                                         </ul>
 
@@ -237,6 +247,7 @@
 
     <script src="script.js"></script>
     <script src="bootstrap.bundle.js"></script>
+    
 </body>
 
-</html> 
+</html>

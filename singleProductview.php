@@ -242,14 +242,34 @@ if (isset($_GET["pid"])) {
                             <div class="col-10 p-3 mt-2 rounded-4 stock_se_input">
 
                                 <div class="row">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a class="fs-1 fw-bold nav-link active" aria-current="page" href="#">Description</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="fs-1 fw-bold nav-link" href="#">Customers Reviews</a>
-                                        </li>
-                                    </ul>
+
+                                    <div class="row">
+
+                                        <div class="col-4">
+
+                                            <div id="list-example" class="list-group">
+
+                                                <a class="list-group-item list-group-item-action" href="#list-item-1">Description</a>
+                                                <a class="list-group-item list-group-item-action" href="#list-item-2">Customers Reviews</a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-8">
+
+                                            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+
+                                                <h4 id="list-item-1" class="fs-1 fw-bold">Description</h4>
+                                                <p><?php echo $product_data["description"]; ?></p>
+                                                <h4 id="list-item-2" class="fs-1 fw-bold">Customers Reviews</h4>
+                                                <p>...</p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
 
                                 </div>
 
@@ -262,7 +282,7 @@ if (isset($_GET["pid"])) {
                 </div>
 
                 <script src="bootstrap.bundle.js"></script>
-            <script src="script.js"></script>
+                <script src="script.js"></script>
         </body>
 
         </html>
@@ -276,7 +296,7 @@ if (isset($_GET["pid"])) {
 
 
     ?>
-        <div class="row ju">
+        <div class="row ">
 
             <a href="adminStockManagement.php" class="fs-1 fw-bold text-center justify-content-center">Please Go to Active Product</a>
 

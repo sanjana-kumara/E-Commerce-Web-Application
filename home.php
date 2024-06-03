@@ -35,7 +35,7 @@
 
                         ?>
 
-                            <div class="col-12">
+                            <div class="col-lg-12 d-none d-lg-block">
 
                                 <div class="row justify-content-end mt-4">
 
@@ -129,7 +129,7 @@
 
                     <div class="row justify-content-center gap-2" id="spid">
 
-                        
+                        <!-- Loaded Product in homeSearchProductProcess.php -->
 
                     </div>
 
@@ -214,7 +214,7 @@
 
                         <?php
 
-                        $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` DESC LIMIT 5 ");
+                        $product_rs = Database::search("SELECT * FROM `product` WHERE `statues`='1' ORDER BY `datetime_add` DESC LIMIT 5 ");
                         $product_num = $product_rs->num_rows;
 
                         for ($i = 0; $i < $product_num; $i++) {
@@ -254,7 +254,7 @@
 
                                     <div class="col-10 mt-2">
 
-                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
+                                       <a href=<?php echo "viewProduct.php?pid=".($product_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a> 
 
                                     </div>
 

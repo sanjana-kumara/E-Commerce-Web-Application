@@ -17,7 +17,7 @@ $q = "SELECT * FROM `user` ORDER BY `Join_date_time` ASC";
 $rs_1 = Database::search($q);
 $num_1 = $rs_1->num_rows;
 
-$result_per_page = 2;
+$result_per_page = 8;
 $num_of_page = ceil($num_1 / $result_per_page);
 
 $page_results = ($pageno - 1) * $result_per_page;
@@ -32,23 +32,25 @@ if ($num_1 == 0) {
 } else {
     // Loade Users
 
-    $rs = Database::search("SELECT * FROM `user` ");
-    $num = $rs->num_rows;
+    for ($i = 0; $i < $num2; $i++) {
 
-    for ($i = 0; $i < $num; $i++) {
-
-        $data = $rs->fetch_assoc();
+        $data = $rs2->fetch_assoc();
 
 ?>
 
         <tr class="table-secondary">
 
-            <td class="fs-5 d-none d-md-block"><img src="resource/user.png" class="Aduserimg"></th>
-            <td class="fs-5"><?php echo $i + 1; ?></td>
-            <td class="fs-5 d-none d-md-block"><?php echo $data['username']; ?></td>
-            <td class="fs-5"><?php echo $data['email']; ?></td>
-            <td class="fs-5 d-none d-md-block"><?php echo $data['mobile']; ?></td>
-            <td class="fs-5">
+            <td class="fs-5 d-none d-md-block"><img class="usericonadmin border border-3 border-dark shadow-lg mt-2" style="background-image:url('<?php
+
+                                                                                                                            $img_rs = Database::search("SELECT * FROM `profile_img` WHERE `user_id`='" . $data["id"] . "' ");
+                                                                                                                            $img_data = $img_rs->fetch_assoc();
+
+                                                                                                                            echo $img_data["img_path"] ?>');"></th>
+            <td class="fs-2 fw-bold"><?php echo $i + 1; ?></td>
+            <td class="fs-2 fw-bold d-none d-md-block"><?php echo $data['username']; ?></td>
+            <td class="fs-3 fw-bold"><?php echo $data['email']; ?></td>
+            <td class="fs-3 fw-bold d-none d-md-block"><?php echo $data['mobile']; ?></td>
+            <td class="fs-3 fw-bold">
 
                 <?php
 
@@ -60,7 +62,7 @@ if ($num_1 == 0) {
 
             <td class="fs-3 d-none d-md-block">
 
-                <button class="btn btn-danger fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Deactivate</button>
+                <button class="btn btn-danger fs-5 fw-bold" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Deactivate</button>
             </td>
 
         <?php
@@ -73,7 +75,7 @@ if ($num_1 == 0) {
 
             <td class="fs-3 d-none d-md-block">
 
-                <button class="btn btn-success fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Activate</button>
+                <button class="btn btn-success fs-5 fw-bold" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Activate</button>
             </td>
 
         <?php
@@ -91,23 +93,23 @@ if ($num_1 == 0) {
 
     <!-- pagination -->
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center gap-2">
 
-        <div class="col-2 d-none d-md-block">
+        <div class="bg-black rounded-5 col-10 d-none d-md-block mb-2">
 
-            <div class="row col-4 h-100 w-100">
+            <div class="row">
 
                 <nav aria-label="Page navigation example">
 
-                    <ul class="pagination fw-bold fs-3">
+                    <ul class="pagination fw-bold fs-3 mt-3 ms-2">
 
                         <li class="page-item">
                             <a class="page-link fs-3" <?php if ($pageno <= 1) {
                                                             echo ("#");
                                                         } else {
                                                         ?> onclick="loadUser(<?php echo ($pageno - 1) ?>);" <?php
-                                                                                                                }
-                                                                                                                    ?>>Previous</a>
+                                                                                                        }
+                                                                                                            ?>>Previous</a>
                         </li>
 
                         <?php
@@ -136,8 +138,8 @@ if ($num_1 == 0) {
                                                             echo ("#");
                                                         } else {
                                                         ?> onclick="loadUser(<?php echo ($pageno + 1) ?>);" <?php
-                                                                                                                }
-                                                                                                                    ?>>Next</a>
+                                                                                                        }
+                                                                                                            ?>>Next</a>
                         </li>
 
                     </ul>

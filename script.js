@@ -560,10 +560,13 @@ function homeSearch(x){
       
       var response = request.responseText;
 
-      // alert(response);
-
       document.getElementById("spid").innerHTML = response;
       
+    }
+
+    if (product.value.trim() =="") {
+
+      window.location.reload();
 
     }
 
@@ -780,15 +783,14 @@ function resetpassword() {
 
 function showpasswordicon() {
   var textfield = document.getElementById("pass");
-  var butn_icon = document.getElementById("bti");
+  var butn_icon = document.getElementById("passicon");
 
   if (textfield.type == "password") {
     textfield.type = "text";
-    butn_icon.className = "fa-solid fa-face-smile-beam fw-bold text-white fs-4";
+    butn_icon.innerHTML = '<i class="fa-solid fa-eye-slash fw-bold text-white fs-4"></i>';
   } else {
     textfield.type = "password";
-    butn_icon.className =
-      "fa-sharp fa-thin fa-face-awesome fw-bold text-white fs-4";
+    butn_icon.innerHTML = '<i class="fa-sharp fa-solid fa-eye fw-bold text-white fs-4"></i>';
   }
 }
 

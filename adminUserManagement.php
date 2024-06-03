@@ -53,8 +53,6 @@ if (isset($_SESSION["ad"])) {
 
                                     </div>
 
-
-
                                     <div class="row justify-content-center">
 
                                         <div class="mt-4 mb-4">
@@ -89,6 +87,7 @@ if (isset($_SESSION["ad"])) {
                                         </div>
 
                                     </div>
+
 
 
                                 </div>
