@@ -50,8 +50,7 @@ if (empty($fname)) {
         echo ("Success");
 
     }
-    
-    
+     
 
 }
 

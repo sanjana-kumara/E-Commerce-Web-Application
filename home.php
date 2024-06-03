@@ -18,7 +18,7 @@
 
     </head>
 
-    <body class="home_body">
+    <body class="home_body" onload="loadeProduct(0);">
 
         <div class="container-fluid">
 
@@ -125,244 +125,193 @@
 
             <div class="row">
 
-                <div class="col-12 p-4">
+                <div class="col-12 mb-2" >
 
-                    <!-- Carousel -->
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="row justify-content-center gap-2" id="spid">
 
-                        <div class="carousel-inner">
-
-                            <div class="carousel-item active">
-                                <img src="resource/carousel/carousel 7.jpg " class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 8.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 4.jpg " class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 2.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 1.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 3.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 5.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 9.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="resource/carousel/carousel 6.jpg" class="d-block carousel_img" alt="...">
-                            </div>
-
-                        </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-
-                        </button>
-
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-
-                        </button>
+                        
 
                     </div>
-                    <!-- Carousel -->
 
                 </div>
 
             </div>
 
-            <div class="row justify-content-center">
+            <div class="col-12 p-4">
 
-                <div class="col-11 mb-4">
+                <!-- Carousel -->
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
-                    <p class="text-center newproduct_row w-100 h-100 mb-3">New Product</p>
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <img src="resource/carousel/carousel 7.jpg " class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 8.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 4.jpg " class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 2.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 1.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 3.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 5.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 9.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="resource/carousel/carousel 6.jpg" class="d-block carousel_img" alt="...">
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+
+                    </button>
 
                 </div>
+                <!-- Carousel -->
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-11 mb-4">
+
+                <p class="text-center newproduct_row w-100 h-100 mb-3">New Product</p>
+
+            </div>
 
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col-12 mb-2">
+                <div class="col-12 mb-2">
 
-                        <div class="row justify-content-center gap-2">
+                    <div class="row justify-content-center gap-2">
 
-                            <!-- New Product Img -->
+                        <!-- New Product Img -->
 
-                            <?php
+                        <?php
 
-                            $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` DESC LIMIT 5 ");
-                            $product_num = $product_rs->num_rows;
+                        $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` DESC LIMIT 5 ");
+                        $product_num = $product_rs->num_rows;
 
-                            for ($i = 0; $i < $product_num; $i++) {
+                        for ($i = 0; $i < $product_num; $i++) {
 
-                                $product_data = $product_rs->fetch_assoc();
+                            $product_data = $product_rs->fetch_assoc();
 
-                            ?>
+                        ?>
 
-                                <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
+                            <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
 
-                                    <div class="row justify-content-center">
+                                <div class="row justify-content-center">
 
-                                        <?php
+                                    <?php
 
-                                        $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
-                                        $img_data = $img_rs->fetch_assoc();
+                                    $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
+                                    $img_data = $img_rs->fetch_assoc();
 
-                                        ?>
+                                    ?>
 
-                                        <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
-                                            <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row justify-content-center">
-
-                                        <div class="col-10 text-center mt-2">
-
-                                            <span class="fs-3 fw-bold recent_text_1"><?php echo ($product_data["name"]); ?></span><br>
-                                            <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span><br>
-                                            <span class="fs-4 fw-bold qty">Discount <?php echo ($product_data["Discount"]); ?></span>
-
-                                        </div>
-
-                                        <div class="col-10 mt-2">
-
-                                            <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                        </div>
-
-                                        <div class="col-10 mt-2 mb-4">
-
-                                            <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                                <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                        </div>
+                                        <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 
                                     </div>
 
                                 </div>
 
-                            <?php
+                                <div class="row justify-content-center">
 
-                            }
+                                    <div class="col-10 text-center mt-2">
 
-                            ?>
-
-                            <!--New Product Image -->                            
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Image row 2 -->
-
-            <div class="row justify-content-center">
-
-                <div class="col-11 mb-4">
-
-                    <p class="text-center newproduct_row w-100 h-100 mb-3">Choose Your Products</p>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-12 mb-2">
-
-                        <div class="row justify-content-center gap-2">
-
-                            <!-- Choose Your Products Img -->
-
-                            <?php
-
-                            $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` ASC ");
-                            $product_num = $product_rs->num_rows;
-
-                            for ($i = 0; $i < $product_num; $i++) {
-
-                                $product_data = $product_rs->fetch_assoc();
-
-                            ?>
-
-                                <div class="col-lg-2 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg">
-
-                                    <div class="row justify-content-center">
-
-                                        <?php
-
-                                        $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $product_data["id"] . "' ");
-                                        $img_data = $img_rs->fetch_assoc();
-
-                                        ?>
-
-                                        <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
-
-                                            <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
-
-                                        </div>
+                                        <span class="fs-3 fw-bold recent_text_1"><?php echo ($product_data["name"]); ?></span><br>
+                                        <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span><br>
+                                        <span class="fs-4 fw-bold qty">Discount <?php echo ($product_data["Discount"]); ?></span>
 
                                     </div>
 
-                                    <div class="row justify-content-center">
+                                    <div class="col-10 mt-2">
 
-                                        <div class="col-10 text-center mt-2">
+                                        <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
 
-                                            <span class="fs-3 fw-bold recent_text_1"><?php echo ($product_data["name"]); ?></span><br>
-                                            <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($product_data["price"]); ?>.00 </span><br>
-                                            <span class="fs-4 fw-bold qty">Discount <?php echo ($product_data["Discount"]); ?></span>
+                                    </div>
 
-                                        </div>
+                                    <div class="col-10 mt-2 mb-4">
 
-                                        <div class="col-10 mt-2">
-
-                                            <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button>
-
-                                        </div>
-
-                                        <div class="col-10 mt-2 mb-4">
-
-                                            <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                                <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-                                        </div>
+                                        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
+                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
 
                                     </div>
 
                                 </div>
 
-                            <?php
+                            </div>
 
-                            }
+                        <?php
 
-                            ?>
+                        }
 
-                            <!-- Choose Your Products Img --> 
-                            
+                        ?>
 
-                        </div>
+                        <!--New Product Image -->
 
                     </div>
 
                 </div>
+
             </div>
-            <!-- Image row 2 -->
+
+        </div>
+
+        <!-- Image row 2 -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-11 mb-4">
+
+                <p class="text-center newproduct_row w-100 h-100 mb-3">Choose Your Products</p>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-12 mb-2">
+
+                    <div class="row justify-content-center gap-2" id="pid">
+
+                        <!-- Loade Product in loadeHomeProductProcess.php -->
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Image row 2 -->
 
         </div>
 

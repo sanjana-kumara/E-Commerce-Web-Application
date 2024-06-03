@@ -466,6 +466,32 @@ function loadStock(x) {
   request.send(f);
 }
 
+function loadUser(y){
+
+  var user = y;
+
+  var f = new FormData();
+  f.append("u",user);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+
+    if (request.readyState == 4 && request.status == 200 ) {
+      
+      var response = request.responseText;
+
+      document.getElementById("uid").innerHTML = response;
+
+    }
+
+  }
+
+  request.open("POST","loadeUserProcess.php",true);
+  request.send(f);
+
+}
+
 function searchProduct(x) {
   var page = x;
   var product = document.getElementById("product");
@@ -486,6 +512,71 @@ function searchProduct(x) {
   request.open("POST", "admin_SearchProductProcess.php", true);
   request.send(f);
 }
+
+// home Page Product Search
+
+function loadeProduct(x){
+
+  var page = x ;
+
+  var f = new FormData();
+  f.append("p",page);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function (){
+
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // 
+      document.getElementById("pid").innerHTML = response;
+    }
+
+  }
+
+  request.open("POST","loadeHomeProductProcess.php",true);
+  request.send(f);
+
+}
+
+
+function homeSearch(x){
+
+  var page = x;
+  var product = document.getElementById("homeproduct");
+
+  // alert(page);
+  // alert(product.value);
+
+  var f = new FormData();
+  f.append("pa",page);
+  f.append("pr",product.value);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+
+    if (request.readyState == 4 && request.status == 200) {
+      
+      var response = request.responseText;
+
+      // alert(response);
+
+      document.getElementById("spid").innerHTML = response;
+      
+
+    }
+
+  }
+
+  request.open("POST","homeSearchProductProcess.php",true);
+  request.send(f);
+
+}
+
+
+
+// home Page Product Search
 
 function loadMainImg(id) {
   var sample_img = document.getElementById("productImg" + id).src;
@@ -546,7 +637,16 @@ function changeProductDeatiles() {
     if (request.readyState == 4 && request.status == 2) {
       var response = request.responseText;
 
-      alert(response);
+      if (response == "Product has been Updateed") {
+        
+        window.location = "adminStockManagement.php";
+
+      } else {
+
+        alert(response);
+        
+      }
+      
     }
   };
 

@@ -17,7 +17,7 @@ if (isset($_SESSION["ad"])) {
         <title>Halgahawatta Hardware Admin Panel</title>
     </head>
 
-    <body class="addminBody">
+    <body class="addminBody" onload="loadUser(0);">
         <?php include "connection.php"; ?>
 
         <div class="container-fluid vh-100">
@@ -77,66 +77,10 @@ if (isset($_SESSION["ad"])) {
 
                                                 </thead>
 
-                                                <tbody>
+                                                <tbody id="uid">
 
-                                                    <?php
-
-                                                    $rs = Database::search("SELECT * FROM `user` ");
-                                                    $num = $rs->num_rows;
-
-                                                    for ($i = 0; $i < $num; $i++) {
-
-                                                        $data = $rs->fetch_assoc();
-
-                                                    ?>
-
-                                                        <tr class="table-secondary">
-
-                                                            <td class="fs-5 d-none d-md-block"><img src="resource/user.png" class="Aduserimg"></th>
-                                                            <td class="fs-5"><?php echo $i + 1; ?></td>
-                                                            <td class="fs-5 d-none d-md-block"><?php echo $data['username']; ?></td>
-                                                            <td class="fs-5"><?php echo $data['email']; ?></td>
-                                                            <td class="fs-5 d-none d-md-block"><?php echo $data['mobile']; ?></td>
-                                                            <td class="fs-5">
-
-                                                                <?php
-
-                                                                if ($data['statues'] == 1) {
-
-                                                                    echo ("Active");
-
-                                                                ?>
-
-                                                            <td class="fs-3 d-none d-md-block">
-
-                                                                <button class="btn btn-danger fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Deactivate</button>
-                                                            </td>
-
-                                                        <?php
-
-                                                                } else {
-
-                                                                    echo ("Deactive");
-
-                                                        ?>
-
-                                                            <td class="fs-3 d-none d-md-block">
-
-                                                                <button class="btn btn-success fs-5" id="stbtn<?php echo $data['id']; ?>" onclick="status('<?php echo $data['id']; ?>');">Activate</button>
-                                                            </td>
-
-                                                        <?php
-
-                                                                }
-
-
-                                                        ?>
-
-                                                    <?php
-                                                    }
-
-                                                    ?>
-
+                                                <!-- Loade Users In LoadeUserProcess.php -->
+                                                   
                                                 </tbody>
 
 

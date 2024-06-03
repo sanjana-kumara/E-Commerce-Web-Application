@@ -100,18 +100,18 @@ if (isset($_GET["pid"])) {
 
                                                 <div class="mt-4">
 
-                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Price" id="pprice" value="<?php echo $product_data["price"]; ?>">
+                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Price" id="pprice" value="Price = <?php echo $product_data["price"]; ?>">
 
                                                 </div>
 
                                                 <div class="mt-4">
 
-                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Quantity" id="pqty" value="<?php echo $product_data["quantity"]; ?>">
+                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Quantity" id="pqty" value="Avalable quantity = <?php echo $product_data["quantity"]; ?>">
 
                                                 </div>
                                                 <div class="mt-4 mb-4">
 
-                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Delivery Cost " id="pdiliver" value="Rs.<?php echo $product_data["delivery_cost"]; ?>.00">
+                                                    <input type="text" class="form form-control border border-3 border-dark shadow-lg fs-4 fw-bold prmainput" placeholder="Enter Delivery Cost " id="pdiliver" value="Delivery Cost = <?php echo $product_data["delivery_cost"]; ?>">
 
                                                 </div>
 

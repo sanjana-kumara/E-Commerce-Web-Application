@@ -100,7 +100,7 @@
 
                                     <div class="col-md-8 mt-2">
 
-                                        <input type="text" class="form-control w-100 h-100 fs-4 fw-bold" placeholder="Type Here...">
+                                        <input type="text" class="form-control w-100 h-100 fs-4 fw-bold" placeholder="Type Here..." id="homeproduct" onkeyup="homeSearch(0);">
 
                                     </div>
 
@@ -239,4 +239,4 @@
     <script src="bootstrap.bundle.js"></script>
 </body>
 
-</html>
+</html> 
