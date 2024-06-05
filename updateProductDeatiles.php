@@ -13,7 +13,7 @@ if (isset($_GET["pid"])) {
     $discount = $_POST["dis"];
 
     Database::iud("UPDATE `product` SET `description`='" . $description . "' , `price`='" . $price . "',`quantity`='" . $quntity . "',
-`delivery_cost`='" . $delivery_cost . "', `Discount`='" . $discount . "' ");
+`delivery_cost`='" . $delivery_cost . "', `Discount`='" . $discount . "' WHERE `id`='".$pid."' ");
 
     echo ("Product has been Updateed");
 

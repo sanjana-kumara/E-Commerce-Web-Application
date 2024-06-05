@@ -496,6 +496,17 @@ height: 40px;
     
 }
 
+@media(max-width:700px){
+
+  .mainImg{
+
+    height: 300px;
+    width:  300px;
+
+  }
+
+}
+
 .product-qty{
   text-align: center;
   margin-left: 200px;

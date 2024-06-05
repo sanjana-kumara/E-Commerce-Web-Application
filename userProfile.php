@@ -46,22 +46,17 @@ if (isset($_SESSION["u"])) {
 
                             <div class="row justify-content-end mt-4">
 
-                                <div class="col-1">
+                                <div class="col-lg-1">
 
                                     <span class="fw-bold text-light link-warning fs-3">Home</span>
 
                                 </div>
-                                <div class="col-1">
+                                <div class="col-lg-1">
 
                                     <span class="fw-bold text-light link-warning fs-3">Newsroom</span>
 
                                 </div>
-                                <div class="col-1">
-
-                                    <span class="fw-bold text-light link-warning fs-3 ms-4">Shop</span>
-
-                                </div>
-                                <div class="col-2">
+                                <div class="col-lg-2">
 
                                     <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
 

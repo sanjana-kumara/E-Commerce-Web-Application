@@ -57,7 +57,7 @@
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="userProfile.php"><i class="fa-solid fa-user fa-bounce fs-4 mt-2"></i>&nbsp;&nbsp;&nbsp; My Profile </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="home.php"><i class="fa-sharp fa-solid fa-shop fa-beat fs-5"></i>&nbsp;&nbsp;&nbsp;Shop </a>
                                             <hr class="border border-3 border-white"> 
-                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="addTocart.php"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>

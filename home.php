@@ -49,11 +49,6 @@
                                         <span class="fw-bold text-light link-warning fs-3">Newsroom</span>
 
                                     </div>
-                                    <div class="col-1">
-
-                                        <span class="fw-bold text-light link-warning fs-3 ms-4">Shop</span>
-
-                                    </div>
                                     <div class="col-2">
 
                                         <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
@@ -125,7 +120,7 @@
 
             <div class="row">
 
-                <div class="col-12 mb-2" >
+                <div class="col-12 mb-2">
 
                     <div class="row justify-content-center gap-2" id="spid">
 
@@ -234,7 +229,7 @@
 
                                     ?>
 
-                                    <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                                    <div class="col-8 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
                                         <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 
@@ -254,7 +249,7 @@
 
                                     <div class="col-10 mt-2">
 
-                                       <a href=<?php echo "viewProduct.php?pid=".($product_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a> 
+                                        <a href=<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a>
 
                                     </div>
 
@@ -313,7 +308,7 @@
         </div>
         <!-- Image row 2 -->
 
-        </div>
+    
 
         <script src="bootstrap.js"></script>
         <script src="bootstrap.bundle.js"></script>

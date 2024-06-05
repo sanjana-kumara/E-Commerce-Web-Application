@@ -466,30 +466,24 @@ function loadStock(x) {
   request.send(f);
 }
 
-function loadUser(y){
-
+function loadUser(y) {
   var user = y;
 
   var f = new FormData();
-  f.append("u",user);
+  f.append("u", user);
 
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function(){
-
-    if (request.readyState == 4 && request.status == 200 ) {
-      
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
 
       document.getElementById("uid").innerHTML = response;
-
     }
+  };
 
-  }
-
-  request.open("POST","loadeUserProcess.php",true);
+  request.open("POST", "loadeUserProcess.php", true);
   request.send(f);
-
 }
 
 function searchProduct(x) {
@@ -515,33 +509,27 @@ function searchProduct(x) {
 
 // home Page Product Search
 
-function loadeProduct(x){
-
-  var page = x ;
+function loadeProduct(x) {
+  var page = x;
 
   var f = new FormData();
-  f.append("p",page);
+  f.append("p", page);
 
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function (){
-
+  request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
-      // 
+      //
       document.getElementById("pid").innerHTML = response;
     }
+  };
 
-  }
-
-  request.open("POST","loadeHomeProductProcess.php",true);
+  request.open("POST", "loadeHomeProductProcess.php", true);
   request.send(f);
-
 }
 
-
-function homeSearch(x){
-
+function homeSearch(x) {
   var page = x;
   var product = document.getElementById("homeproduct");
 
@@ -549,35 +537,26 @@ function homeSearch(x){
   // alert(product.value);
 
   var f = new FormData();
-  f.append("pa",page);
-  f.append("pr",product.value);
+  f.append("pa", page);
+  f.append("pr", product.value);
 
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function(){
-
+  request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
-      
       var response = request.responseText;
 
       document.getElementById("spid").innerHTML = response;
-      
     }
 
-    if (product.value.trim() =="") {
-
+    if (product.value.trim() == "") {
       window.location.reload();
-
     }
+  };
 
-  }
-
-  request.open("POST","homeSearchProductProcess.php",true);
+  request.open("POST", "homeSearchProductProcess.php", true);
   request.send(f);
-
 }
-
-
 
 // home Page Product Search
 
@@ -641,15 +620,10 @@ function changeProductDeatiles() {
       var response = request.responseText;
 
       if (response == "Product has been Updateed") {
-        
         window.location = "adminStockManagement.php";
-
       } else {
-
         alert(response);
-        
       }
-      
     }
   };
 
@@ -787,10 +761,12 @@ function showpasswordicon() {
 
   if (textfield.type == "password") {
     textfield.type = "text";
-    butn_icon.innerHTML = '<i class="fa-solid fa-eye-slash fw-bold text-white fs-4"></i>';
+    butn_icon.innerHTML =
+      '<i class="fa-solid fa-eye-slash fw-bold text-white fs-4"></i>';
   } else {
     textfield.type = "password";
-    butn_icon.innerHTML = '<i class="fa-sharp fa-solid fa-eye fw-bold text-white fs-4"></i>';
+    butn_icon.innerHTML =
+      '<i class="fa-sharp fa-solid fa-eye fw-bold text-white fs-4"></i>';
   }
 }
 
@@ -861,3 +837,173 @@ function updateUserDeatils() {
 // request.open("POST","",true);
 
 // }
+
+// add to cart
+
+function addtoCart(x) {
+  var pid = x;
+  var qty = document.getElementById("qty");
+
+  if (qty.value > 0) {
+    var f = new FormData();
+    f.append("p", pid);
+    f.append("q", qty.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+        var response = request.responseText;
+        // alert(response);
+
+        Swal.fire({
+          title: response,
+          icon: "success"
+        });
+
+        qty.value = "";
+      }
+    };
+
+    request.open("POST", "addtoCartProcess.php", true);
+    request.send(f);
+  } else {
+    
+    
+  }
+}
+
+function loadCart() {
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+      if (response == "Cart is Empty") {
+       
+        Swal.fire({
+          icon: "error",
+          title: "Warning!",
+          text: "Cart is Empty!",
+          footer: '<a href="home.php" class="text-primary fs-3 fw-bold">Continue Shoping....</a>'
+        });
+
+      } else {
+        document.getElementById("cartBody").innerHTML = response;
+        
+      }
+    }
+  };
+
+  request.open("POST", "loadeCartProcess.php", true);
+  request.send();
+}
+
+function incrementCartQty(x) {
+  // alert(x);
+
+  var cartId = x;
+  var qty = document.getElementById("qty" + x);
+  // alert(qty.value);
+  var newQty = parseInt(qty.value) + 1;
+
+  var f = new FormData();
+  f.append("c",cartId);
+  f.append("q",newQty);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+
+      if (response == "Success") {
+        
+        qty.value = parseInt(qty.value)+1;
+        loadCart();
+
+      } else {
+        
+        alert(response);
+
+      }
+
+    }
+
+  }
+
+  request.open("POST","updateCartQtyProcess.php",true);
+  request.send(f);
+
+}
+
+function decrementCartQty(x){
+  // alert(x);
+  var cartId = x;
+  var qty = document.getElementById("qty" + x);
+  // alert(qty.value);
+  var newQty = parseInt(qty.value) - 1;
+
+  var f = new FormData();
+  f.append("c",cartId);
+  f.append("q",newQty);
+
+  if (newQty > 0) {
+
+    var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function(){
+
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+
+      if (response == "Success") {
+        
+        qty.value = parseInt(qty.value)-1;
+        loadCart();
+
+      } else {
+        
+        alert(response);
+
+      }
+
+    }
+
+  }
+
+  request.open("POST","updateCartQtyProcess.php",true);
+  request.send(f);
+    
+  } 
+
+}
+
+function removeCart(x){
+
+  // alert(x);
+
+  if (confirm("Are You sur deleting this items?")) {
+    var f = new FormData();
+    f.append("c",x);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+      if (request.readyState == 4 && request.status == 200) {
+        var response = request.responseText;
+        // alert("OK");
+
+        alert(response);
+        reload();
+      }
+    }
+
+    request.open("POST","removeCartProcess.php",true);
+    request.send(f);
+
+  }
+
+}

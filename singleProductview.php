@@ -7,8 +7,8 @@ if (isset($_GET["pid"])) {
     $pid = $_GET["pid"];
 
     $product_rs = Database::search("SELECT * FROM `product` INNER JOIN `brand` ON `product`.`brand_id`= `brand`.`brand_id` 
-    INNER JOIN `size` ON `product`.`size_id` = `size`.`size_id` INNER JOIN `product_img`
-    ON `product_img`.`product_id` = `product`.`id` WHERE `id`='$pid' AND `statues`='1' ");
+    INNER JOIN `size` ON `product`.`size_id` = `size`.`size_id` INNER JOIN `condition`
+    ON `condition`.`con_id` = `product`.`condition_con_id` WHERE `id`='$pid' AND `statues`='1' ");
 
     $product_num = $product_rs->num_rows;
 
@@ -57,6 +57,7 @@ if (isset($_GET["pid"])) {
                                 </div>
 
                                 <div class="row ">
+
                                     <?php
                                     $image_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $pid . "'");
                                     $image_num = $image_rs->num_rows;
@@ -152,7 +153,7 @@ if (isset($_GET["pid"])) {
 
                                             <div class="col-lg-5">
 
-                                                <span class="fs-2 fw-bold bran_text1">Condition : </span> <span class="fs-2 fw-bold bran_text2"> Original / Local </span>
+                                                <span class="fs-2 fw-bold bran_text1">Condition : </span> <span class="fs-2 fw-bold bran_text2"> <?php echo ($product_data["con_name"]); ?> </span>
 
                                             </div>
 
@@ -170,7 +171,6 @@ if (isset($_GET["pid"])) {
                                         </div>
                                         <div class="col-12 mt-3">
 
-                                            <span class="fs-1 fw-bold text-decoration-line-through">5000.00</span><span class="fs-1 fw-bold"> Discount <?php echo ($product_data["Discount"]); ?></span>
 
                                         </div>
                                         <div class="col-12 mt-3">
@@ -219,7 +219,7 @@ if (isset($_GET["pid"])) {
 
                                                     <div class="col-lg-6">
 
-                                                        <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart"> Add To Cart </button></a>
+                                                        <!-- <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo $product_data['id'] ?>');" > Add To Cart </button></a> -->
 
                                                     </div>
 
