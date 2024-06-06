@@ -959,6 +959,8 @@ function removeCart(x) {
 }
 // add to cart
 
+
+
 // CheckOut Process
 function cheCkout() {
   // alert("OK");
@@ -971,7 +973,6 @@ function cheCkout() {
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
       // alert(response);
-
       var payment = JSON.parse(response);
       doCheckout(payment, "checkOutProcess.php");
     }
@@ -1092,4 +1093,42 @@ function loadeChart() {
 
   request.open("POST", "loadChartProcess.php", true);
   request.send();
+}
+
+// Advance Search
+function advancedSearch(x) {
+  var txt = document.getElementById("t");
+  var category = document.getElementById("c1");
+  var subcategory = document.getElementById("sb");
+  var brand = document.getElementById("b1");
+  var condition = document.getElementById("c2");
+  var size = document.getElementById("c3");
+  var from = document.getElementById("pf");
+  var to = document.getElementById("pt");
+  var sort = document.getElementById("s");
+
+  var f = new FormData();
+  f.append("t", txt.value);
+  f.append("cat", category.value);
+  f.append("subcat", subcategory.value);
+  f.append("b", brand.value);
+  f.append("con", condition.value);
+  f.append("si", size.value);
+  f.append("pf", from.value);
+  f.append("pt", to.value);
+  f.append("s", sort.value);
+  f.append("page", x);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.status == 200 && request.readyState == 4) {
+      var response = request.responseText;
+      // alert(response);
+      document.getElementById("view_area").innerHTML = response;
+    }
+  };
+
+  request.open("POST", "advancedSearchProcess.php", true);
+  request.send(f);
 }

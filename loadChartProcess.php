@@ -4,7 +4,7 @@ include "connection.php";
 
 $rs = Database::search("SELECT `product`.`id`,`product`.`name`, SUM(`order_items`.`oi_qty`) AS
 `total_sold` FROM `order_items` INNER JOIN `product` ON `product`.`id` = `order_items`.`product_id` 
-GROUP BY `product`.`id`,`product`.`name` ORDER BY `total_sold`DESC LIMIT 5;");
+GROUP BY `product`.`id`,`product`.`name` ORDER BY `total_sold` DESC LIMIT 5");
 
 $num = $rs->num_rows;
 

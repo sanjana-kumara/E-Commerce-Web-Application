@@ -113,7 +113,7 @@
                                     <div class="col-md-4 gap-3">
 
                                         <button class="rounded-4 h-100 w-50 btn01 me-2 fs-3 fw-bold"> Search </button>
-                                        <button class="rounded-4 h-100 w-25 btn02 fs-3 fw-bold text-light shadow-lg"> Filter </button>
+                                        <a href="advancedSearch.php"><button class="rounded-4 h-100 w-25 btn02 fs-3 fw-bold text-light shadow-lg"> Filter </button></a>
 
                                     </div>
 
@@ -221,7 +221,7 @@
                                     <div class="col-md-4 gap-3">
 
                                         <button class="rounded-4 h-100 w-50 btn01 me-2 fs-3 fw-bold"> Search </button>
-                                        <button class="rounded-4 h-100 w-25 btn02 fs-3 fw-bold text-light shadow-lg"> Filter </button>
+                                        <a href="advancedSearch.php"><button class="rounded-4 h-100 w-25 btn02 fs-3 fw-bold text-light shadow-lg"> Filter </button></a>
 
                                     </div>
 
