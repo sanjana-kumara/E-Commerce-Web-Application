@@ -97,7 +97,7 @@ if ($num > 0) {
 
         <div class="col-lg-4 border border-dark border-4 rounded-5 shadow-lg bg-warning">
 
-            <p class="fs-1 fw-bold text-center mt-2">Check Out</p>
+            <p class="fs-1 fw-bold text-center mt-2" onclick="cheCkout();">Check Out</p>
 
         </div>
 

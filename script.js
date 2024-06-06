@@ -508,7 +508,6 @@ function searchProduct(x) {
 }
 
 // home Page Product Search
-
 function loadeProduct(x) {
   var page = x;
 
@@ -557,7 +556,6 @@ function homeSearch(x) {
   request.open("POST", "homeSearchProductProcess.php", true);
   request.send(f);
 }
-
 // home Page Product Search
 
 function loadMainImg(id) {
@@ -568,7 +566,6 @@ function loadMainImg(id) {
 }
 
 // Product Update (updateProduct.php)
-
 function changeProductImage() {
   var image = document.getElementById("imgUploader");
 
@@ -630,7 +627,6 @@ function changeProductDeatiles() {
   request.open("POST", "updateProductDeatiles.php", true);
   request.send(f);
 }
-
 // Product Update (updateProduct.php)
 
 function check_value(qty) {
@@ -670,7 +666,6 @@ function qty_dec() {
 }
 
 // customer singup process
-
 var forgotPasswordModal;
 
 function forgotPassword() {
@@ -769,7 +764,9 @@ function showpasswordicon() {
       '<i class="fa-sharp fa-solid fa-eye fw-bold text-white fs-4"></i>';
   }
 }
+// customer singup process
 
+// user Profile Process
 function uploadeProfileImg() {
   var img = document.getElementById("profileImage");
   img.onchange = function () {
@@ -824,22 +821,9 @@ function updateUserDeatils() {
   request.open("POST", "profileDeatilsUploadeProcess.php", true);
   request.send(f);
 }
+// user Profile Process
 
-// function updateproduct(id){
-
-// var pid = id;
-
-// var f = new FormData();
-// f.append("id",pid);
-
-// var request = new XMLHttpRequest();
-
-// request.open("POST","",true);
-
-// }
-
-// add to cart
-
+// add to cart Process
 function addtoCart(x) {
   var pid = x;
   var qty = document.getElementById("qty");
@@ -857,7 +841,7 @@ function addtoCart(x) {
 
         Swal.fire({
           title: response,
-          icon: "success"
+          icon: "success",
         });
 
         qty.value = "";
@@ -867,8 +851,6 @@ function addtoCart(x) {
     request.open("POST", "addtoCartProcess.php", true);
     request.send(f);
   } else {
-    
-    
   }
 }
 
@@ -880,17 +862,15 @@ function loadCart() {
       var response = request.responseText;
       // alert(response);
       if (response == "Cart is Empty") {
-       
         Swal.fire({
           icon: "error",
           title: "Warning!",
           text: "Cart is Empty!",
-          footer: '<a href="home.php" class="text-primary fs-3 fw-bold">Continue Shoping....</a>'
+          footer:
+            '<a href="home.php" class="text-primary fs-3 fw-bold">Continue Shoping....</a>',
         });
-
       } else {
         document.getElementById("cartBody").innerHTML = response;
-        
       }
     }
   };
@@ -900,46 +880,36 @@ function loadCart() {
 }
 
 function incrementCartQty(x) {
-  // alert(x);
-
   var cartId = x;
   var qty = document.getElementById("qty" + x);
   // alert(qty.value);
   var newQty = parseInt(qty.value) + 1;
 
   var f = new FormData();
-  f.append("c",cartId);
-  f.append("q",newQty);
+  f.append("c", cartId);
+  f.append("q", newQty);
 
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function(){
-
+  request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
       // alert(response);
 
       if (response == "Success") {
-        
-        qty.value = parseInt(qty.value)+1;
+        qty.value = parseInt(qty.value) + 1;
         loadCart();
-
       } else {
-        
         alert(response);
-
       }
-
     }
+  };
 
-  }
-
-  request.open("POST","updateCartQtyProcess.php",true);
+  request.open("POST", "updateCartQtyProcess.php", true);
   request.send(f);
-
 }
 
-function decrementCartQty(x){
+function decrementCartQty(x) {
   // alert(x);
   var cartId = x;
   var qty = document.getElementById("qty" + x);
@@ -947,51 +917,38 @@ function decrementCartQty(x){
   var newQty = parseInt(qty.value) - 1;
 
   var f = new FormData();
-  f.append("c",cartId);
-  f.append("q",newQty);
+  f.append("c", cartId);
+  f.append("q", newQty);
 
   if (newQty > 0) {
-
     var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function(){
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+        var response = request.responseText;
+        // alert(response);
 
-    if (request.readyState == 4 && request.status == 200) {
-      var response = request.responseText;
-      // alert(response);
-
-      if (response == "Success") {
-        
-        qty.value = parseInt(qty.value)-1;
-        loadCart();
-
-      } else {
-        
-        alert(response);
-
+        if (response == "Success") {
+          qty.value = parseInt(qty.value) - 1;
+          loadCart();
+        } else {
+          alert(response);
+        }
       }
+    };
 
-    }
-
+    request.open("POST", "updateCartQtyProcess.php", true);
+    request.send(f);
   }
-
-  request.open("POST","updateCartQtyProcess.php",true);
-  request.send(f);
-    
-  } 
-
 }
 
-function removeCart(x){
-
-  // alert(x);
-
+function removeCart(x) {
   if (confirm("Are You sur deleting this items?")) {
     var f = new FormData();
-    f.append("c",x);
+    f.append("c", x);
 
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function () {
       if (request.readyState == 4 && request.status == 200) {
         var response = request.responseText;
         // alert("OK");
@@ -999,11 +956,74 @@ function removeCart(x){
         alert(response);
         reload();
       }
+    };
+
+    request.open("POST", "removeCartProcess.php", true);
+    request.send(f);
+  }
+}
+// add to cart
+
+// CheckOut Process
+function cheCkout() {
+  // alert("OK");
+
+  var f = new FormData();
+  f.append("cart", true);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+
+      var payment = JSON.parse(response);
+      doCheckout(payment, "checkOutProcess.php");
+    }
+  };
+
+  request.open("POST", "paymentProcess.php", true);
+  request.send(f);
+}
+
+function doCheckout(payment, path) {
+  // Payment completed. It can be a successful failure.
+  payhere.onCompleted = function onCompleted(orderId) {
+    console.log("Payment completed. OrderID:" + orderId);
+    // Note: validate the payment and show success or failure page to the customer
+  };
+
+  // Payment window closed
+  payhere.onDismissed = function onDismissed() {
+    // Note: Prompt user to pay again or show an error page
+    console.log("Payment dismissed");
+
+    var f = new FormData();
+    f.append("payment", JSON.stringify(payment));
+
+    var request = new XMLHttpRequest();
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      alert(response);
+      // if (response == "Success") {
+      //   reload();
+      // } else {
+      //   alert(response);
+      // }
     }
 
-    request.open("POST","removeCartProcess.php",true);
+    request.open("POST", path, true);
     request.send(f);
+  };
 
-  }
+  // Error occurred
+  payhere.onError = function onError(error) {
+    // Note: show an error page
+    console.log("Error:" + error);
+  };
 
+  // Show the payhere.js popup, when "PayHere Pay" is clicked
+  // document.getElementById('payhere-payment').onclick = function (e) {
+  payhere.startPayment(payment);
+  // };
 }
