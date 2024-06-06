@@ -46,7 +46,13 @@ echo("Success oder history");
     }
 
     Database::iud("DELETE FROM `cart` WHERE `user_id`='".$user["id"]."' ");
-    echo("Success");
+    // echo("Success");
+
+    $order = array();
+    $order["resp"] = "Success";
+    $order["order_id"] = $orderHistoryId;
+
+    echo json_encode($order);
 
 }
 

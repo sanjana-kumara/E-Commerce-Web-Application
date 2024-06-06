@@ -203,7 +203,7 @@
             <!-- content -->
             <!-- modal -->
 
-            <div class="modal" tabindex="-1" id="fpmodal">
+            <div class="modal" tabindex="-1" id="forgetModel">
 
                 <div class="modal-dialog">
 

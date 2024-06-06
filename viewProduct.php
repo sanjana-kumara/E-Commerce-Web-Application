@@ -216,13 +216,13 @@ if (isset($_GET["pid"])) {
 
                                                 <div class="col-lg-6">
 
-                                                    <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn"> Buy Now </button>
+                                                    <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" onclick="buyNow('<?php echo $product_data['id'] ?>');"> Buy Now </button>
 
                                                 </div>
 
                                                 <div class="col-lg-6">
 
-                                                <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo ($product_data['id']) ?>');"> Add To Cart </button></a>
+                                                <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo ($product_data['id']) ?>');"> Add To Cart </button>
 
                                                 </div>
 
@@ -296,10 +296,12 @@ if (isset($_GET["pid"])) {
 
             </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script src="bootstrap.js"></script>
             <script src="bootstrap.bundle.js"></script>
             <script src="script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 
         </body>
 

@@ -679,11 +679,11 @@ function forgotPassword() {
 
       if (response == "Success") {
         alert("Verification Code is Successfully Sent Please Check Your Email");
-        var modal = document.getElementById("fpmodal");
+        var modal = document.getElementById("forgetModel");
         forgotPasswordModal = new bootstrap.Modal(modal);
         forgotPasswordModal.show();
       } else {
-        document.getElementById("msg1").innerHTML = text;
+        document.getElementById("msg1").innerHTML = response;
         document.getElementById("msgdiv1").className = "d-block";
         alert(response);
       }
@@ -839,12 +839,7 @@ function addtoCart(x) {
         var response = request.responseText;
         // alert(response);
 
-        Swal.fire({
-          title: response,
-          icon: "success",
-        });
-
-        qty.value = "";
+        swal("Success", response, "success");
       }
     };
 
@@ -1004,12 +999,17 @@ function doCheckout(payment, path) {
     var request = new XMLHttpRequest();
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
-      alert(response);
-      // if (response == "Success") {
-      //   reload();
-      // } else {
-      //   alert(response);
-      // }
+      // alert(response);
+
+      var order = JSON.parse(response);
+
+      if (order.resp == "Success") {
+        // reload();
+
+        window.location = "invoice.php?orderId" + order.order_id;
+      } else {
+        alert(response);
+      }
     }
 
     request.open("POST", path, true);
@@ -1026,4 +1026,70 @@ function doCheckout(payment, path) {
   // document.getElementById('payhere-payment').onclick = function (e) {
   payhere.startPayment(payment);
   // };
+}
+
+function buyNow(pid) {
+  var qty = document.getElementById("qty");
+
+  if (qty.value > 0) {
+    // alert("OK");
+
+    var f = new FormData();
+    f.append("cart", false);
+    f.append("pid", pid);
+    f.append("qty", qty.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+        var response = request.responseText;
+        // alert(response);
+        var payment = JSON.parse(response);
+        payment.pid = pid;
+        payment.qty = qty.value;
+        doCheckout(payment, "buyNowProcess.php");
+      }
+    };
+
+    request.open("POST", "paymentProcess.php", true);
+    request.send(f);
+  } else {
+    alert("Please Enter Value Quantity");
+  }
+}
+
+function loadeChart() {
+  var ctx = document.getElementById("myChart");
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      // alert(response);
+      var data = JSON.parse(response);
+
+      new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: data.lables,
+          datasets: [
+            {
+              label: "# of Votes",
+              data: data.data,
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+  };
+
+  request.open("POST", "loadChartProcess.php", true);
+  request.send();
 }

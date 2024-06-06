@@ -70,7 +70,7 @@
                                 <a href="adminUserManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">User Management</a>
                                 <a href="admimProductManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Product Management</a>
                                 <a href="adminStockManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3 mb-3">Stock Management</a>
-                                <a href="#" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3">Oder Management</a>
+                                <a href="reportManagement.php" class="bg-black border-dark text-bg-danger text-center list-group-item list-group-item-light fs-3">Report Management</a>
                             </div>
                         </div>
                     </div>

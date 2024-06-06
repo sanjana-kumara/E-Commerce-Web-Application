@@ -17,7 +17,7 @@ if (isset($_SESSION["ad"])) {
         <title>Halgahawatta Hardware Admin Dashboard</title>
     </head>
 
-    <body class="addminBody">
+    <body class="addminBody" onload="loadeChart();">
 
         <?php include "connection.php"; ?>
 
@@ -93,6 +93,25 @@ if (isset($_SESSION["ad"])) {
                 </div>
             </div>
 
+            <!-- Loade Chart -->
+            <div class="row ">
+
+                <div class="col-12 d-flex justify-content-center">
+
+                    <div style="width: 800px; height: 800px;" class="mt-5 mb-5 d-none d-md-block">
+
+                        <h2 class="text-center fw-bold">Most Sold Product</h2>
+
+                        <canvas id="myChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Loade Chart -->
+
             <div class="row">
                 <div class="col-12 mt-5">
                     <div class="row">
@@ -105,7 +124,7 @@ if (isset($_SESSION["ad"])) {
                             <div class="row justify-content-center">
                                 <div class="col-lg-11 col-md-10 mb-3 userlist rounded-4 border border-dark border- shadow-lg">
                                     <div class="row text-light justify-content-center">
-                                        <div class="col-11 col-md-10 mt-3 mb-3">
+                                        <div class="col-lg-11 col-12 col-md-10 mt-3 mb-3">
 
                                             <?php
                                             $rs = Database::search("SELECT * FROM `user`");
@@ -117,7 +136,7 @@ if (isset($_SESSION["ad"])) {
                                                         <th class="fw-bold fs-3">Id</th>
                                                         <th class="fw-bold fs-3 d-none d-md-block">Username</th>
                                                         <th class="fw-bold fs-3">Email</th>
-                                                        <th class="fw-bold fs-3">Status</th>
+                                                        <th class="fw-bold fs-3 d-none d-md-block">Status</th>
                                                     </tr>
                                                     <hr>
                                                 </thead>
@@ -134,7 +153,7 @@ if (isset($_SESSION["ad"])) {
                                                             <th class="fs-5"><?php echo $data['id']; ?></th>
                                                             <td class="fs-5 d-none d-md-block"><?php echo $data['username']; ?></td>
                                                             <td class="fs-5"><?php echo $data['email']; ?></td>
-                                                            <td class="fs-5">
+                                                            <td class="fs-5 d-none d-md-block">
 
                                                                 <?php
 
@@ -171,6 +190,7 @@ if (isset($_SESSION["ad"])) {
 
         <script src="script.js"></script>
         <script src="bootstrap.bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 
     </html>
@@ -178,9 +198,8 @@ if (isset($_SESSION["ad"])) {
 <?php
 
 } else {
-    
-    header("location:adminLogin.php");
 
+    header("location:adminLogin.php");
 }
 
 ?>

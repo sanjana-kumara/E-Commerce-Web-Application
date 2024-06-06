@@ -70,7 +70,7 @@ if ($num2 == 0) {
 
                 ?>
 
-                <div class="col-9 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                <div class="col-11 rounded-5 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
                     <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 

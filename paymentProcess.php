@@ -24,7 +24,12 @@ if (isset($_POST["cart"]) && $_POST["cart"] == "true") {
     }
 
 } else {
-    echo("From Buy Now");    
+
+    // buy now
+
+    $productList = $_POST["pid"];
+    $qtyList = $_POST["qty"];
+
 }
 
 $merchantId = "1225151";

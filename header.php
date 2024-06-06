@@ -8,6 +8,7 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Halgahawatta Hardware Admin Panel</title>
 </head>
@@ -59,7 +60,7 @@
                                             <hr class="border border-3 border-white"> 
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="addTocart.php"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
-                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="orderHistory.php "><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
                                             <li><a class="dropdown-item text-white link-warning fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>
                                             <hr class="border border-3 border-white">
