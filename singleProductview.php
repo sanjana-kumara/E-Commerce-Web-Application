@@ -27,6 +27,7 @@ if (isset($_GET["pid"])) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
             <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link rel="stylesheet" href="bootstrap.css">
             <link rel="stylesheet" href="style.css">
             <title>Sigal Product View</title>
@@ -122,16 +123,16 @@ if (isset($_GET["pid"])) {
 
                                         <div class="row justify-content-center">
 
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-5 mt-4 ms-5">
 
-                                                <img class="star" src="resource/star.png">
-                                                <img class="star" src="resource/star.png">
-                                                <img class="star" src="resource/star.png">
-                                                <img class="star" src="resource/star.png">
-                                                <img class="star" src="resource/star.png">
+                                                <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
+                                                <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
+                                                <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
+                                                <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
+                                                <i class="fa-solid fa-star fa-beat fs-1 text-warning"></i>
+
 
                                             </div>
-
                                             <div class="col-lg-5">
 
                                                 <span class="fs-1 fw-bold bran_text1">No | Customer Rating</span>
@@ -180,32 +181,19 @@ if (isset($_GET["pid"])) {
                                         </div>
                                         <div class="col-12 mt-3 text-center">
 
-                                            <div class="row">
+                                            <div class="row justify-content-center">
 
-                                                <div class="col-12 text-center">
+                                                <div class="col-5">
 
-                                                    <div class="border border-1 border-secondary rounded overflow-hidden float-left mt-1 position-relative product-qty">
-                                                        <div class="col-12">
-                                                            <span class="fw-bold fs-2 mb-2">Quantity : </span>
-                                                            <input onkeyup=' (<?php echo $product_data["quantity"]; ?>);' type="text" class="border-0 fs-2 fw-bold text-start" style="outline: none;" pattern="[0-9]" value="1" id="qty_input" />
-
-                                                            <div class="position-absolute qty-buttons">
-                                                                <div class="justify-content-center d-flex flex-column align-items-center border border-1 border-secondary qty-inc">
-                                                                    <i class="bi bi-caret-up-fill text-primary fs-5" onclick='qty_inc(<?php echo $product_data["quantity"]; ?>);'></i>
-                                                                </div>
-                                                                <div class="justify-content-center d-flex flex-column align-items-center border border-1 border-secondary qty-dec">
-                                                                    <i class="bi bi-caret-down-fill text-primary fs-5" onclick="qty_dec();"></i>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-
+                                                    <span class="fs-4 fw-bold mb-5"> Avalable Quantity - <?php echo ($product_data["quantity"]); ?> </span>
+                                                    <input type="number" class="form-control form-control-sm fw-bold fs-3 text-center" placeholder="Quantity" id="qty" value="1">
 
                                                 </div>
 
                                             </div>
+
+                                        </div>
+                                        <div class="col-12 mt-3 text-center">
 
                                             <div class="col-12 mt-3 text-center mb-3">
 
@@ -213,13 +201,13 @@ if (isset($_GET["pid"])) {
 
                                                     <div class="col-lg-6">
 
-                                                        <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn"> Buy Now </button>
+                                                        <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" disabled> Buy Now </button>
 
                                                     </div>
 
                                                     <div class="col-lg-6">
 
-                                                        <!-- <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo $product_data['id'] ?>');" > Add To Cart </button></a> -->
+                                                        <a href="addTocart.php"><button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" disabled> Add To Cart </button></a>
 
                                                     </div>
 

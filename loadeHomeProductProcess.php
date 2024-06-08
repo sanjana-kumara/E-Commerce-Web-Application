@@ -32,9 +32,6 @@ if ($num2 == 0) {
 } else {
     // Load Product
 
-    // $product_rs = Database::search("SELECT * FROM `product` ORDER BY `datetime_add` ASC ");
-    // $product_num = $product_rs->num_rows;
-
     for ($i = 0; $i < $num2; $i++) {
 
         $product_data = $rs2->fetch_assoc();
@@ -52,7 +49,7 @@ if ($num2 == 0) {
 
                 ?>
 
-                <div class="col-8 rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                <div class="col-11 rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
                     <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 
@@ -72,15 +69,18 @@ if ($num2 == 0) {
 
                 <div class="col-10 mt-2">
 
-                <a href=<?php echo "viewProduct.php?pid=".($product_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a> 
+                    <a href=<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a>
 
                 </div>
 
                 <div class="col-10 mt-2 mb-4">
 
                     <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                        <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
 
+                        <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i>
+
+                    </button>
+                    
                 </div>
 
             </div>

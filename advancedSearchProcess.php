@@ -32,13 +32,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."'";
+            $query .= " WHERE `category_id`='" . $catid . "'";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."'";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "'";
         }
     }
-    
+
     if ($category != 0 && $sub_category == 0) {
 
         $category_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' ");
@@ -48,14 +48,13 @@ if ($sort == 0) {
             $catid = $category_data["cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."'";
+            $query .= " WHERE `category_id`='" . $catid . "'";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."'";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "'";
         }
-
     }
-    
+
     if ($category != 0 && $sub_category != 0) {
 
         $category_rs = Database::search("SELECT * FROM `category` INNER JOIN `sub_category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' AND `sub_cat_id`= '" . $sub_category . "' ");
@@ -65,12 +64,11 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."'";
+            $query .= " WHERE `category_id`='" . $catid . "'";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."'";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "'";
         }
-
     }
 
 
@@ -141,13 +139,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` ASC";
         }
     }
-    
+
     if ($category != 0 && $sub_category == 0) {
 
         $category_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' ");
@@ -157,14 +155,13 @@ if ($sort == 0) {
             $catid = $category_data["cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` ASC";
         }
-
     }
-    
+
     if ($category != 0 && $sub_category != 0) {
 
         $category_rs = Database::search("SELECT * FROM `category` INNER JOIN `sub_category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' AND `sub_cat_id`= '" . $sub_category . "' ");
@@ -174,12 +171,11 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` ASC";
         }
-
     }
 
 
@@ -259,13 +255,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` DESC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` DESC";
         }
     }
-    
+
     if ($category != 0 && $sub_category == 0) {
 
         $category_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' ");
@@ -275,14 +271,13 @@ if ($sort == 0) {
             $catid = $category_data["cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` DESC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` DESC";
         }
-
     }
-    
+
     if ($category != 0 && $sub_category != 0) {
 
         $category_rs = Database::search("SELECT * FROM `category` INNER JOIN `sub_category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' AND `sub_cat_id`= '" . $sub_category . "' ");
@@ -292,14 +287,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `price` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `price` DESC";
             $status = 1;
-        }elseif ($status != 0) { 
-            $query .= " AND `category_id`='".$catid."' ORDER BY `price` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `price` DESC";
         }
-
     }
-    
+
 
     if ($brand != 0 && $status == 0) {
         $query .= " WHERE `brand_id`='" . $category . "' ORDER BY `price` DESC";
@@ -368,13 +362,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
         }
     }
-    
+
     if ($category != 0 && $sub_category == 0) {
 
         $category_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' ");
@@ -384,14 +378,13 @@ if ($sort == 0) {
             $catid = $category_data["cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
         }
-
     }
-    
+
     if ($category != 0 && $sub_category != 0) {
 
         $category_rs = Database::search("SELECT * FROM `category` INNER JOIN `sub_category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' AND `sub_cat_id`= '" . $sub_category . "' ");
@@ -401,14 +394,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` ASC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` ASC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` ASC";
         }
-
     }
-   
+
     if ($brand != 0 && $status == 0) {
         $query .= " WHERE `brand_id`='" . $category . "' ORDER BY `quantity` ASC";
         $status = 1;
@@ -476,13 +468,13 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
         }
     }
-    
+
     if ($category != 0 && $sub_category == 0) {
 
         $category_rs = Database::search("SELECT * FROM `sub_category` INNER JOIN `category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' ");
@@ -492,14 +484,13 @@ if ($sort == 0) {
             $catid = $category_data["cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
         }
-
     }
-    
+
     if ($category != 0 && $sub_category != 0) {
 
         $category_rs = Database::search("SELECT * FROM `category` INNER JOIN `sub_category` ON category.cat_id = sub_category.category_id WHERE `cat_id`= '" . $category . "' AND `sub_cat_id`= '" . $sub_category . "' ");
@@ -509,12 +500,11 @@ if ($sort == 0) {
             $catid = $category_data["sub_cat_id"];
         }
         if ($status == 0) {
-            $query .= " WHERE `category_id`='".$catid."' ORDER BY `quantity` DESC";
+            $query .= " WHERE `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
             $status = 1;
-        }elseif ($status != 0) {
-            $query .= " AND `category_id`='".$catid."' ORDER BY `quantity` DESC";
+        } elseif ($status != 0) {
+            $query .= " AND `category_id`='" . $catid . "' ORDER BY `quantity` DESC";
         }
-
     }
 
 
@@ -597,50 +587,50 @@ for ($x = 0; $x < $selected_num; $x++) {
 ?>
     <div class="col-lg-3 col-md-4 col-10 border border-2 rounded-5 border-dark bg-white shadow-lg ms-5">
 
-<div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-    <?php
+            <?php
 
-    $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $selected_data["id"] . "' ");
-    $img_data = $img_rs->fetch_assoc();
+            $img_rs = Database::search("SELECT * FROM `product_img` WHERE `product_id`='" . $selected_data["id"] . "' ");
+            $img_data = $img_rs->fetch_assoc();
 
-    ?>
+            ?>
 
-    <div class="col-11 rounded-5 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+            <div class="col-11 rounded-5 col-md-10 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
-        <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
+                <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-10 text-center mt-2">
+
+                <span class="fs-3 fw-bold recent_text_1"><?php echo ($selected_data["name"]); ?></span><br>
+                <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($selected_data["price"]); ?>.00 </span><br>
+                <span class="fs-4 fw-bold qty">Discount <?php echo ($selected_data["Discount"]); ?></span>
+
+            </div>
+
+            <div class="col-10 mt-2">
+
+                <a href=<?php echo "viewProduct.php?pid=" . ($selected_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a>
+
+            </div>
+
+            <div class="col-10 mt-2 mb-4">
+
+                <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
+                    <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
+
+            </div>
+
+        </div>
 
     </div>
-
-</div>
-
-<div class="row justify-content-center">
-
-    <div class="col-10 text-center mt-2">
-
-        <span class="fs-3 fw-bold recent_text_1"><?php echo ($selected_data["name"]); ?></span><br>
-        <span class="fs-2 fw-bold recent_text_2">Rs. <?php echo ($selected_data["price"]); ?>.00 </span><br>
-        <span class="fs-4 fw-bold qty">Discount <?php echo ($selected_data["Discount"]); ?></span>
-
-    </div>
-
-    <div class="col-10 mt-2">
-
-        <a href=<?php echo "viewProduct.php?pid=" . ($selected_data['id']); ?>> <button class="btn01 fs-4 fw-bold w-100 h-100 p-2 rounded-5 border-dark shadow-lg border border-2">Add To Cart </button> </a>
-
-    </div>
-
-    <div class="col-10 mt-2 mb-4">
-
-        <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
-
-    </div>
-
-</div>
-
-</div>
-<!--New Product Image -->
+    <!--New Product Image -->
 
 <?php
 }
@@ -689,5 +679,3 @@ for ($x = 0; $x < $selected_num; $x++) {
         </ul>
     </nav>
 </div>
-
-

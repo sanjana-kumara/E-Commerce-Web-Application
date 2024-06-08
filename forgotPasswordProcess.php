@@ -14,6 +14,7 @@ $email = $_GET["e"];
 if (empty($email)) {
 
     echo ("Please enter your Email Address in Email Field.");
+
 } else {
 
     $rs = Database::search("SELECT * FROM `user` WHERE `email`='" . $email . "'");
@@ -41,7 +42,7 @@ if (empty($email)) {
         $mail->Body    = $bodyContent;
 
         if (!$mail->send()) {
-            echo 'Verification code sending failed.';
+            echo ("Verification code sending failed.");
         } else {
             echo ("Success");
         }

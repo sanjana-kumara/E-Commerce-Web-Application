@@ -3,7 +3,7 @@
 session_start();
 include "connection.php";
 $user = $_SESSION["u"];
-$orderHistoryId = $_GET["order_id"];
+$orderHistoryId = $_GET["orderId"];
 
 $rs = Database::search("SELECT * FROM `order_history` WHERE `oh_id`='" . $orderHistoryId . "' ");
 $num = $rs->num_rows;
@@ -87,12 +87,12 @@ if ($num > 0) {
 
                                 <?php
 
-                                $rs2 = Database::search("SELECT * FROM `order_items` INNER JOIN `product` ON 
-                            `product`.`id` = `order_items`.`product_id` 
-                            INNER JOIN `category` ON `category`.`cat_id` = `product`.`category_id`
-                            INNER JOIN `brand` ON `brand`.`brand_id` = `product`.`brand_id` 
-                            INNER JOIN `size` ON `size`.size_id = `product`.`size_id` 
-                            WHERE `order_items`.`order_history_oh_id` = '" . $orderHistoryId . "' ;");
+                                $rs2 = Database::search("SELECT * FROM `order_items` 
+                                INNER JOIN `product` ON `product`.`id` = `order_items`.`product_id` 
+                                INNER JOIN `category` ON `category`.`cat_id` = `product`.`category_id`
+                                INNER JOIN `brand` ON `brand`.`brand_id` = `product`.`brand_id` 
+                                INNER JOIN `size` ON `size`.size_id = `product`.`size_id` 
+                                WHERE `order_items`.`order_history_oh_id` = '" . $orderHistoryId . "' ;");
 
                                 $num2 = $rs2->num_rows;
 
@@ -138,6 +138,12 @@ if ($num > 0) {
 
         </div>
 
+        <script src="bootstrap.js"></script>
+        <script src="bootstrap.bundle.js"></script>
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     </body>
 
     </html>

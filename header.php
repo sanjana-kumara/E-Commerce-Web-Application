@@ -57,13 +57,44 @@
 
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="userProfile.php"><i class="fa-solid fa-user fa-bounce fs-4 mt-2"></i>&nbsp;&nbsp;&nbsp; My Profile </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="home.php"><i class="fa-sharp fa-solid fa-shop fa-beat fs-5"></i>&nbsp;&nbsp;&nbsp;Shop </a>
-                                            <hr class="border border-3 border-white"> 
+                                                <hr class="border border-3 border-white">
+
+                                                <?php
+
+                                                $product_rs = Database::search("SELECT * FROM `cart` WHERE `user_id`='" . $data["id"] . "' ");
+                                                $product_num = $product_rs->num_rows;
+
+                                                if ($product_num == 0) {
+                                                ?>
+
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="addTocart.php"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
-                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
-                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="orderHistory.php "><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
+
+
+                                            <?php
+
+                                                } else {
+                                            ?>
+
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="addTocart.php"><i class="fa-solid fa-cart-plus fa-beat fs-4">
+
+                                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                            <?php echo $product_num; ?><span class="visually-hidden">unread messages</span>
+                                                        </span>
+
+                                                    </i>&nbsp;&nbsp;&nbsp;Cart </a>
+
+
+                                            <?php
+                                                }
+
+
+                                            ?>
+
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="watchlist.php"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="orderHistory.php "><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Order History </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
                                             <li><a class="dropdown-item text-white link-warning fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>
-                                            <hr class="border border-3 border-white">
+                                                <hr class="border border-3 border-white">
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#" onclick="logOut2();"><i class="fa-solid fa-arrow-right-from-bracket fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Log Out </a>
 
                                         </ul>
@@ -83,7 +114,36 @@
 
                             <div class="col-2 d-none d-md-block">
 
-                                <button class="carticon border border-3 border-dark shadow-lg mt-2"></button>
+                                <?php
+
+                                if ($product_num == 0) {
+                                ?>
+                                    <a href="addTocart.php"><button type="button" class="btn-primary position-relative carticon border border-3 border-dark shadow-lg mt-2"></button></a>
+
+                                <?php
+
+                                } else {
+                                ?>
+
+                                    <a href="addTocart.php"><button type="button" class="btn-primary position-relative carticon border border-3 border-dark shadow-lg mt-2">
+
+                                            <span class="position-absolute fw-bold text-dark fs-3 bg-warning top-0 start-100 translate-middle badge rounded-pill">
+
+                                                <?php echo $product_num; ?>
+
+                                                <span class="visually-hidden">unread messages</span>
+
+                                            </span>
+
+                                        </button>
+
+                                    </a>
+
+
+                                <?php
+                                }
+
+                                ?>
 
                             </div>
 
@@ -92,7 +152,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="row justify-content-center">
 
@@ -165,13 +224,13 @@
 
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="userProfile.php"><i class="fa-solid fa-user fa-bounce fs-4 mt-2"></i>&nbsp;&nbsp;&nbsp; My Profile </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="home.php"><i class="fa-sharp fa-solid fa-shop fa-beat fs-5"></i>&nbsp;&nbsp;&nbsp;Shop </a>
-                                            <hr class="border border-3 border-white"> 
+                                                <hr class="border border-3 border-white">
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-cart-plus fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Cart </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Purchased History </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
                                             <li><a class="dropdown-item text-white link-warning fs-5 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>
-                                            <hr class="border border-3 border-white">
+                                                <hr class="border border-3 border-white">
                                             <li><a class="dropdown-item link-warning text-white fs-5 fw-bold" href="#" onclick="logOut2();"><i class="fa-solid fa-arrow-right-from-bracket fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Log Out </a>
 
                                         </ul>
@@ -248,7 +307,7 @@
 
     <script src="script.js"></script>
     <script src="bootstrap.bundle.js"></script>
-    
+
 </body>
 
 </html>

@@ -59,7 +59,7 @@ if ($num > 0) {
 
                         <div class="col-md-12 mt-4 mb-4">
 
-                            <button class="btn h-100 w-100 p-2 border border-3 border-dark shadow-lg fw-bold fs-3 rounded-5 addcart_Btn">Buy Now</button>
+                            <button class="btn h-100 w-100 p-2 border border-3 border-dark shadow-lg fw-bold fs-3 rounded-5 addcart_Btn" disabled>Buy Now</button>
 
                         </div>
                         <div class="col-2 ">

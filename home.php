@@ -49,7 +49,7 @@
                                         <span class="fw-bold text-light link-warning fs-3">Newsroom</span>
 
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-2 ms-3">
 
                                         <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
 
@@ -76,7 +76,7 @@
 
                                     <div class="col-1">
 
-                                        <span class="fw-bold text-light link-warning fs-3">Home</span>
+                                        <a href="home.php"><span class="fw-bold text-light link-warning fs-3">Home</span></a>
 
                                     </div>
                                     <div class="col-2">
@@ -89,7 +89,7 @@
                                         <span class="fw-bold text-light link-warning fs-3">Shop</span>
 
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-2 ms-3">
 
                                         <span class="fw-bold text-light link-warning fs-3">Contact Us </span>
 
@@ -229,7 +229,7 @@
 
                                     ?>
 
-                                    <div class="col-8 rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                                    <div class="col-11 rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
                                         <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 
@@ -256,7 +256,10 @@
                                     <div class="col-10 mt-2 mb-4">
 
                                         <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
-                                            <i class="fa-solid fa-eye-slash fs-3"></i> &nbsp; <i class="fa-solid fa-cart-plus fs-3"></i> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i></button>
+
+                                            <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i>
+
+                                        </button>
 
                                     </div>
 
@@ -308,12 +311,13 @@
         </div>
         <!-- Image row 2 -->
 
-    
+
 
         <script src="bootstrap.js"></script>
         <script src="bootstrap.bundle.js"></script>
         <script src="script.js"></script>
         <?php include "footer.php" ?>
+
     </body>
 
     </html>

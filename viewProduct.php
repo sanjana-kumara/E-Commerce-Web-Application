@@ -20,7 +20,7 @@ if (isset($_GET["pid"])) {
         <html lang="en">
 
         <head>
-            
+
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,7 +59,7 @@ if (isset($_GET["pid"])) {
 
                                 <div class="row">
 
-                                    <div class="col-lg-12 mb-2">
+                                    <div class="col-lg-10 mb-2">
 
                                         <img class="border border-3 border-dark rounded-4 shadow-lg mainImg" id="mainImg">
 
@@ -122,7 +122,7 @@ if (isset($_GET["pid"])) {
 
                                 <div class="row justify-content-center">
 
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4 col-lg-10 mt-3 ms-5">
 
                                         <span class="fs-1 fw-bold text-center"><?php echo ($product_data["name"]); ?></span>
 
@@ -132,7 +132,7 @@ if (isset($_GET["pid"])) {
 
                                         <div class="row justify-content-center">
 
-                                            <div class="col-lg-5 mt-2">
+                                            <div class="col-lg-5 mt-4 ms-5">
 
                                                 <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
                                                 <i class="fa-solid fa-star fa-beat fs-1 text-warning me-3"></i>
@@ -143,7 +143,7 @@ if (isset($_GET["pid"])) {
 
                                             </div>
 
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-6 mt-3">
 
                                                 <span class="fs-1 fw-bold bran_text1">No | Customer Rating</span>
 
@@ -158,11 +158,11 @@ if (isset($_GET["pid"])) {
 
                                             <div class="col-lg-4">
 
-                                                <span class="fs-2 fw-bold bran_text1">Brand : </span> <span class="fs-2 fw-bold bran_text2"> <?php echo ($product_data["brand_name"]); ?> </span>
+                                                <span class="fs-2 fw-bold bran_text1">Brand : </span> <span class="fs-3 fw-bold bran_text2"> <?php echo ($product_data["brand_name"]); ?> </span>
 
                                             </div>
 
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-5 ms-3">
 
                                                 <span class="fs-2 fw-bold bran_text1">Condition : </span> <span class="fs-2 fw-bold bran_text2"><?php echo ($product_data["con_name"]); ?></span>
 
@@ -195,9 +195,30 @@ if (isset($_GET["pid"])) {
                                             <div class="row justify-content-center">
 
                                                 <div class="col-5">
-                                                    
-                                                    <span class="fs-4 fw-bold mb-5"> Avalable Quantity - <?php echo ($product_data["quantity"]); ?>  </span>
-                                                    <input type="number" class="form-control form-control-sm fw-bold fs-3 text-center" placeholder="Quantity" id="qty" value="1">
+
+                                                    <?php
+
+                                                    if ($product_data["quantity"] == 0) {
+
+                                                    ?>
+                                                        <span class="fs-3 fw-bold mb-5 text-danger"> Out OF Stock - <?php echo ($product_data["quantity"]); ?> </span>
+                                                        <input type="number" class="form-control form-control-sm fw-bold fs-3 text-center" placeholder="Quantity" id="qty" value="0">
+
+                                                    <?php
+
+                                                    } else {
+
+                                                    ?>
+
+                                                        <span class="fs-4 fw-bold mb-5"> Avalable Quantity - <?php echo ($product_data["quantity"]); ?> </span>
+                                                        <input type="number" class="form-control form-control-sm fw-bold fs-3 text-center" placeholder="Quantity" id="qty" value="1">
+
+                                                    <?php
+
+                                                    }
+
+
+                                                    ?>
 
                                                 </div>
 
@@ -207,57 +228,87 @@ if (isset($_GET["pid"])) {
 
                                         <div class="col-12 mt-3 text-center mb-3">
 
-                                        <?php
-                                        
-                                        if (isset($_SESSION["u"])) {
+                                            <?php
+
+                                            if (isset($_SESSION["u"])) {
                                             ?>
-                                            
-                                             <div class="row">
 
-                                                <div class="col-lg-6">
+                                                <div class="row">
 
-                                                    <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" onclick="buyNow('<?php echo $product_data['id'] ?>');"> Buy Now </button>
+
+                                                    <?php
+
+                                                    if ($product_data["quantity"] == 0) {
+
+                                                    ?>
+                                                        <div class="col-lg-6">
+
+                                                            <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" onclick="buyNow('<?php echo $product_data['id'] ?>');" disabled> Buy Now </button>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+
+                                                            <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo ($product_data['id']) ?>');" disabled> Add To Cart </button>
+
+                                                        </div>
+
+                                                    <?php
+
+                                                    } else {
+
+                                                    ?>
+                                                        <div class="col-lg-6">
+
+                                                            <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" onclick="buyNow('<?php echo $product_data['id'] ?>');"> Buy Now </button>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+
+                                                            <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo ($product_data['id']) ?>');"> Add To Cart </button>
+
+                                                        </div>
+
+                                                    <?php
+
+                                                    }
+
+
+                                                    ?>
 
                                                 </div>
 
-                                                <div class="col-lg-6">
+                                            <?php
 
-                                                <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" onclick="addtoCart('<?php echo ($product_data['id']) ?>');"> Add To Cart </button>
+                                            } else {
+                                            ?>
 
-                                                </div>
+                                                <div class="row">
 
-                                            </div>
+                                                    <div class="col-lg-6">
 
-                                            <?php                                           
-                                            
-                                        } else {
-                                           ?>
-                                                                                   
-                                             <div class="row">
+                                                        <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" disabled> Buy Now </button>
 
-                                                <div class="col-lg-6">
+                                                    </div>
 
-                                                    <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg buy_now_btn" disabled> Buy Now </button>
+                                                    <div class="col-lg-6">
 
-                                                </div>
+                                                        <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" disabled> Add To Cart </button>
 
-                                                <div class="col-lg-6">
-
-                                                    <button class="btn w-75 h-100 fw-bold fs-3 border rounded-5 border-3 border-dark shadow-lg btn_addto__cart" disabled> Add To Cart </button>
+                                                    </div>
 
                                                 </div>
 
-                                            </div>
+                                            <?php
 
-                                            <?php  
-                                                                                  
-                                            
-                                        }
-                                        
 
-                                        ?>
+                                            }
 
-                                           
+
+                                            ?>
+
+
 
                                         </div>
 
@@ -273,23 +324,40 @@ if (isset($_GET["pid"])) {
 
                     <div class="row justify-content-center">
 
-                        <div class="col-lg-10 p-3 mt-2 rounded-4 stock_se_input">
+                        <div class="col-lg-10 p-3 mt-2 rounded-4 stock_se_input mb-3">
 
                             <div class="row">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="fs-1 fw-bold nav-link active" aria-current="page" href="#">Description</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="fs-1 fw-bold nav-link" href="#">Customers Reviews</a>
-                                    </li>
-                                </ul>
+
+                                <div class="col-4">
+
+                                    <div id="list-example" class="list-group">
+
+                                        <a class="list-group-item list-group-item-action" href="#list-item-1">Description</a>
+                                        <a class="list-group-item list-group-item-action" href="#list-item-2">Customers Reviews</a>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-8">
+
+                                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+
+                                        <h4 id="list-item-1" class="fs-1 fw-bold">Description</h4>
+                                        <p><?php echo $product_data["description"]; ?></p>
+                                        <h4 id="list-item-2" class="fs-1 fw-bold">Customers Reviews</h4>
+                                        <p>...</p>
+
+                                    </div>
+
+                                </div>
 
                             </div>
 
                         </div>
 
                     </div>
+
                     <?php include "footer.php" ?>
 
                 </div>
@@ -319,7 +387,4 @@ if (isset($_GET["pid"])) {
 
 
 } else {
-    
-
-    
 }

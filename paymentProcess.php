@@ -27,8 +27,8 @@ if (isset($_POST["cart"]) && $_POST["cart"] == "true") {
 
     // buy now
 
-    $productList = $_POST["pid"];
-    $qtyList = $_POST["qty"];
+    $productList[] = $_POST["p_id"];
+    $qtyList[] = $_POST["qty"];
 
 }
 
@@ -39,24 +39,24 @@ $netTotal = 0;
 $currency = "LKR";
 $orderId = uniqid();
 
-for ($x=0; $x < sizeof($productList); $x++) { 
+for ($i=0; $i < sizeof($productList); $i++) { 
     
-    $rs2 = Database::search("SELECT * FROM `product` WHERE `product`.`id`='".$productList[$x]."' ");
+    $rs2 = Database::search("SELECT * FROM `product` WHERE `product`.`id`='".$productList[$i]."' ");
     $d2 = $rs2->fetch_assoc();
     $productQty = $d2["quantity"];
 
-    if ($productQty >= $qtyList[$x]) {
+    if ($productQty >= $qtyList[$i]) {
         // Success
 
         $itmes .= $d2["name"];
 
-        if ($x != sizeof($productList) - 1) {
+        if ($i != sizeof($productList) - 1) {
             
             $itmes .=", ";
 
         }
 
-        $netTotal += (intval($d2["price"]) * intval($qtyList[$x]));
+        $netTotal += (intval($d2["price"]) * intval($qtyList[$i]));
 
     } else {
         

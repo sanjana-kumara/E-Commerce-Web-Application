@@ -17,15 +17,18 @@ if (isset($_POST["payment"])) {
 
     $orderHistoryId = Database::$connection->insert_id;
 
-    Database::iud("INSERT INTO `order_items`(`oi_qty`,`order_history_oh_id`,`product_id`)
-    VALUES ('" . $payment["qty"] . "','" . $orderHistoryId . "','" . $payment["pid"] . "') ");
+    // Log order history ID
+    error_log("Order History ID (buy now): " . $orderHistoryId);
 
-    $rs = Database::search("SELECT * FROM `product` WHERE `id`='" .  $payment["pid"] . "' ");
+    Database::iud("INSERT INTO `order_items`(`oi_qty`,`order_history_oh_id`,`product_id`)
+    VALUES ('" . $payment["qty"] . "','" . $orderHistoryId . "','" . $payment["p_id"] . "') ");
+
+    $rs = Database::search("SELECT * FROM `product` WHERE `id`='" .  $payment["p_id"] . "' ");
     $d = $rs->fetch_assoc();
 
-    $newQty = $d2["quantity"] - $payment["qty"];
+    $newQty = $d["quantity"] - $payment["qty"];
     
-    Database::iud("UPDATE `product` SET `quantity`='" . $newQty . "' WHERE `id`='" . $payment["pid"] . "' ");
+    Database::iud("UPDATE `product` SET `quantity`='" . $newQty . "' WHERE `id`='" . $payment["p_id"] . "' ");
     // echo ("Success");
 
     $order = array();
@@ -33,5 +36,7 @@ if (isset($_POST["payment"])) {
     $order["order_id"] = $orderHistoryId;
 
     echo json_encode($order);
+
+
     
 }
