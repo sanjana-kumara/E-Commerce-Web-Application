@@ -948,14 +948,12 @@ function decrementCartQty(x) {
 }
 
 function removeCart(x) {
-
   var f = new FormData();
   f.append("c", x);
 
   var request = new XMLHttpRequest();
 
   request.onreadystatechange = function () {
-
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
       // alert("OK");
@@ -967,37 +965,57 @@ function removeCart(x) {
         buttonsStyling: false,
       });
 
-      swalWithBootstrapButtons.fire({
-
+      swalWithBootstrapButtons
+        .fire({
           title: "Are you sure?",
           text: "You won't be able deleting this items!",
           icon: "warning",
           confirmButtonText: "Yes, delete it!",
-
-        }).then((request) => {
-
+        })
+        .then((request) => {
           if (request.isConfirmed) {
-
-            swalWithBootstrapButtons.fire({
-
+            swalWithBootstrapButtons
+              .fire({
                 title: "Deleted!",
                 text: response,
                 icon: "success",
-              }).then(() => window.location.reload());
+              })
+              .then(() => window.location.reload());
           }
-
-        }
-      );
-    
+        });
     }
-
   };
 
   request.open("POST", "removeCartProcess.php", true);
   request.send(f);
-
 }
 // add to cart
+
+// add to Watchlist
+function addtoWatchlist(pid) {
+  // alert(pid);
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      var response = request.responseText;
+      if(response == "added"){
+        document.getElementById("heart"+id).style.className = "text-danger";
+        window.location.reload();
+    }else if(response == "removed"){
+        document.getElementById("heart"+id).style.className = "text-dark";
+        window.location.reload();
+    }else{
+        alert (response);
+    }
+    }
+  };
+
+  request.open("GET", "addToWatchlistProcess.php?pid=" + pid, true);
+  request.send();
+}
+// add to Watchlist
 
 // CheckOut Process
 function cheCkout() {

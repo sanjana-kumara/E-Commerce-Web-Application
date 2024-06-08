@@ -257,7 +257,8 @@
 
                                         <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
 
-                                            <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i>
+                                            <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp; 
+                                            <a href="watchlist.php" onclick="addtoWatchlist('<?php echo ($product_data['id']) ?>');" ><i class="fa-solid fa-heart-circle-plus fs-3"></i></a>
 
                                         </button>
 
