@@ -1,36 +1,42 @@
 <?php
-
 session_start();
 include "connection.php";
 
-$username = $_POST["un"];
-$password = $_POST["pa"];
-$rememberme = $_POST["rm"];
+$email = $_POST["e"];
+$password = $_POST["p"];
+$rememberme = $_POST["r"];
 
-if (empty($username)) {
-    echo ("Please Enter Username");
-} else if (empty($password)) {
-    echo ("Please Enter Password");
-} else {
+if(empty($email)){
+    echo ("Please Enter Your Email Address.");
+}else if(empty($password)){
+    echo ("Please Enter Your Password.");
+}else{
 
-    $rs = Database::search("SELECT * FROM `user` WHERE `username`='" . $username . "' AND `password`='" . $password . "' ");
-    $num = $rs->num_rows;
-    $data = $rs->fetch_assoc();
+    $rs = Database::search("SELECT * FROM `user` WHERE `email`='".$email."' AND `password`='".$password."'");
+    $n = $rs->num_rows;
 
-    if ($num == 1) {
+    if($n == 1){
 
-        echo ("Success");
+        echo ("success");
+        $d = $rs->fetch_assoc();
+        $_SESSION["u"] = $d;
 
-        $_SESSION["u"] = $data;
+        if($rememberme == "true"){
 
-        if ($rememberme == "true") {
-            setcookie("username", $username, time() + 60 * 60 * 24 * 365);
-            setcookie("password", $password, time() + 60 * 60 * 24 * 365);
-        } else {
-            setcookie("username", "", -1);
-            setcookie("password", "", -1);
+            setcookie("email",$email,time()+(60*60*24*365));
+            setcookie("password",$password,time()+(60*60*24*365));
+
+        }else{
+
+            setcookie("email","",-1);
+            setcookie("password","",-1);
+
         }
-    } else {
-        echo ("Invalide User");
+
+    }else{
+        echo ("Invalid Email or Password.");
     }
+
 }
+
+?>

@@ -44,13 +44,13 @@ if (empty($fname)) {
     if ($num == 1) {
         echo ("Enter Your Username OR Email Or Mobile Already Exists");
     } else {
-        Database::iud("INSERT INTO `user` (`fname`,`lname`,`email`,`mobile`,`password`,`username`,`statues`,`user_type_id`)
-        VALUES ('".$fname."','".$lname."','".$email."','".$mobile."','".$password."','".$username."','1','2') ");
+        Database::iud("INSERT INTO `user` (`fname`,`lname`,`email`,`mobile`,`password`,`username`,`statues`,)
+        VALUES ('".$fname."','".$lname."','".$email."','".$mobile."','".$password."','".$username."','0') ");
 
         echo ("Success");
 
     }
-    
+     
 
 }
 
