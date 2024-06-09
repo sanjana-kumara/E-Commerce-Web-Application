@@ -112,5 +112,4 @@ if (isset($_SESSION["ad"])) {
     header("location:adminLogin.php");
 }
 
-
 ?>

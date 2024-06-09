@@ -327,23 +327,6 @@ function size() {
   request.send(f);
 }
 
-// function loadSubCat() {
-//   var subname = document.getElementById("pcatname").value;
-
-//   var request = new XMLHttpRequest();
-
-//   request.onreadystatechange = function () {
-//     if (request.readyState == 4 && request.status == 200) {
-//       var response = request.responseText;
-
-//       document.getElementById("psubcatname").innerHTML = response;
-//     }
-//   };
-
-//   request.open("GET", "loadSubCatProcess.php?sub=" + subname, true);
-
-//   request.send();
-// }
 
 function uploadeProductImage() {
   var img = document.getElementById("imgUploader");
@@ -1065,7 +1048,9 @@ function cheCkout() {
   request.send(f);
 }
 
-function doCheckout(payment, path) {
+  // alert(response);
+
+    function doCheckout(payment, path) {
   // Payment completed. It can be a successful failure.
   payhere.onCompleted = function onCompleted(orderId) {
     console.log("Payment completed. OrderID:" + orderId);
@@ -1077,8 +1062,6 @@ function doCheckout(payment, path) {
     var request = new XMLHttpRequest();
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
-      // alert(response);
-
       var order = JSON.parse(response);
 
       if (response == "Success") {
