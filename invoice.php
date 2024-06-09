@@ -5,7 +5,7 @@ include "connection.php";
 $user = $_SESSION["u"];
 $orderHistoryId = $_GET["orderId"];
 
-$rs = Database::search("SELECT * FROM `order_history` WHERE `oh_id`='" . $orderHistoryId . "' ");
+$rs = Database::search("SELECT * FROM `order_history` WHERE `oh_id`='" . $orderHistoryId . "' AND `user_id`='".$user."' ");
 $num = $rs->num_rows;
 
 if ($num > 0) {

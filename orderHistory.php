@@ -156,8 +156,10 @@ if (isset($user)) {
 
             </div>
 
-        </div>
-
+            
+            </div>
+            
+            <?php include "footer.php";  ?>
     </body>
 
     </html>

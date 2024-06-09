@@ -90,7 +90,37 @@
 
                                             ?>
 
+
+                                            <?php
+
+                                            $watchlist_rs = Database::search("SELECT * FROM `watchlist` WHERE `user_id`='" . $data["id"] . "' ");
+                                            $watchlist_num = $watchlist_rs->num_rows;
+
+                                            if ($watchlist_num == 0) {
+                                            ?>
+
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="watchlist.php"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;Watchlist </a>
+
+                                            <?php
+
+                                            } else {
+                                            ?>
+
+                                            <li><a class="dropdown-item link-warning text-white fs-4 fw-bold mt-2" href="watchlist.php"><i class="fa-solid fa-heart-circle-plus fa-bounce fs-4">
+
+                                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                                            <?php echo $watchlist_num; ?><span class="visually-hidden">unread messages</span>
+                                                        </span>
+
+                                                    </i>&nbsp;&nbsp;&nbsp;Watchlist </a>
+
+
+                                            <?php
+                                            }
+
+
+                                            ?>
+
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="orderHistory.php "><i class="fa-solid fa-list-check fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Order History </a>
                                             <li><a class="dropdown-item link-warning text-white fs-4 fw-bold" href="#"><i class="fa-solid fa-tag fa-beat fs-4"></i>&nbsp;&nbsp;&nbsp;Offers % </a>
                                             <li><a class="dropdown-item text-white link-warning fs-4 fw-bold mt-2" href="#"><i class="fa-solid fa-star fa-bounce fs-4"></i>&nbsp;&nbsp;&nbsp;My Reviews </a>

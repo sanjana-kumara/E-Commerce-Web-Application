@@ -991,7 +991,7 @@ function removeCart(x) {
 }
 // add to cart
 
-// add to Watchlist
+//Watchlist
 function addtoWatchlist(pid) {
   // alert(pid);
 
@@ -1000,22 +1000,49 @@ function addtoWatchlist(pid) {
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       var response = request.responseText;
-      if(response == "added"){
-        document.getElementById("heart"+id).style.className = "text-danger";
+      if (response == "added") {
         window.location.reload();
-    }else if(response == "removed"){
-        document.getElementById("heart"+id).style.className = "text-dark";
+        document.getElementById("heart" + product_id).className = "fa-solid fa-heart-circle-plus fs-3 text-danger";
+      } else if (response == "removed") {
         window.location.reload();
-    }else{
-        alert (response);
-    }
+        document.getElementById("heart" + product_id).className = "fa-solid fa-heart-circle-plus fs-3 text-dark";
+      } else {
+        alert(response);
+      }
     }
   };
 
   request.open("GET", "addToWatchlistProcess.php?pid=" + pid, true);
   request.send();
 }
-// add to Watchlist
+
+function removeWatchlist(id){
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function (){
+      if(request.status == 200 && request.readyState == 4){
+          var response = request.responseText;
+          if(response == "success"){
+              window.location.reload();
+          }else if(response == "No Watchlist Items") {
+            Swal.fire({
+              icon: "error",
+              title: "Warning!",
+              text: "Watchlist is Empty!",
+              footer:
+                '<a href="home.php" class="text-primary fs-3 fw-bold">Continue Shoping....</a>',
+            }).then(() => window.location.reload());
+          }
+      }
+  }
+
+  request.open("GET","removeWatchlistProcess.php?wid="+id,true);
+  request.send();
+  
+}
+//Watchlist
+
 
 // CheckOut Process
 function cheCkout() {
@@ -1054,9 +1081,9 @@ function doCheckout(payment, path) {
 
       var order = JSON.parse(response);
 
-      if (order.resp == "Success") {
+      if (response == "Success") {
         // reload();
-        // console.log("Order completed with ID: " + order.order_id);
+        console.log("Order completed with ID: " + order.order_id);
         window.location = "invoice.php?orderId=" + order.order_id;
       } else {
         alert(response);

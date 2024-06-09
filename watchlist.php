@@ -81,8 +81,8 @@ if (isset($_SESSION["u"])) {
 
                                                     <button class="btn h-100 w-100 p-2 border border-3 border-dark shadow-lg fw-bold fs-3 rounded-5 addcart_Btn me-2" disabled>Buy Now</button>
                                                     <button class="btn h-100 w-100 p-2 border border-3 border-dark shadow-lg fw-bold fs-3 rounded-5 btn-warning me-2">Add to Cart</button>
-                                                    <button class="btn h-100 w-100 p-3 border border-3 border-dark shadow-lg fw-bold fs-4 rounded-5 btn-primary">Continue Shopping </button>
-                                                    <i class="fa-solid fa-trash fa-shake fs-1 fw-bold mt-2 ms-3" onclick="removeWatchlist(<?php echo $d['product_id'] ?>);"></i>
+                                                    <button class="btn h-100 w-100 p-2 border border-3 border-dark shadow-lg fw-bold fs-3 rounded-5 btn-primary"> Shopping </button>
+                                                    <i class="fa-solid fa-trash fa-shake fs-1 fw-bold mt-2 ms-3" onclick="removeWatchlist(<?php echo $d['wa_id'] ?>);"></i>
 
                                                 </div>
 

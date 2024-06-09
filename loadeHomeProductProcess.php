@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include "connection.php";
 
 $pageno = 0;
@@ -49,7 +50,7 @@ if ($num2 == 0) {
 
                 ?>
 
-                <div class="col-11 rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
+                <div class="col-11 d-flex justify-content-center rounded-5 border border-2 border-dark shadow-lg mt-2 home_imgbody">
 
                     <img src="<?php echo ($img_data["img_path"]); ?>" class="home_img rounded-5">
 
@@ -77,10 +78,38 @@ if ($num2 == 0) {
 
                     <button class="btn03 fs-4 fw-bold w-100 h-100 p-2 rounded-5 shadow-lg">
 
-                        <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp; <i class="fa-solid fa-heart-circle-plus fs-3"></i>
+                        <a href="<?php echo "viewProduct.php?pid=" . ($product_data['id']); ?>"><i class="fa-solid fa-eye-slash fs-3"></i></a> &nbsp; <a href="addTocart.php"><i class="fa-solid fa-cart-plus fs-3"></i></a> &nbsp;
+
+                        <?php
+
+                        // session_start();
+
+                        if (isset($_SESSION["u"])) {
+
+                            $watchlist_rs = Database::search("SELECT * FROM `watchlist` WHERE `user_id`='" . $_SESSION["u"]["id"] . "' AND `product_id`='" . $product_data['id'] . "' ");
+                            $watchlist_num = $watchlist_rs->num_rows;
+                            $watchlist_data = $watchlist_rs->fetch_assoc();
+
+                            if ($watchlist_num == 1) {
+                        ?>
+
+                                <a onclick="addtoWatchlist('<?php echo ($product_data['id']) ?>');"><i class="fa-solid fa-heart-circle-plus fs-3 text-danger" id="heart<?php echo $watchlist_data["product_id"] ?>"></i></a>
+
+                            <?php
+                            } else {
+                            ?>
+
+                                <a onclick="addtoWatchlist('<?php echo ($product_data['id']) ?>');"><i class="fa-solid fa-heart-circle-plus fs-3 text-black" id="heart<?php echo $watchlist_data["product_id"] ?>"></i></a>
+
+                        <?php
+                            }
+                        }
+
+                        ?>
+
 
                     </button>
-                    
+
                 </div>
 
             </div>

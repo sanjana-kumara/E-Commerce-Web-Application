@@ -109,8 +109,6 @@ if ($num > 0) {
 
     echo("Cart is Empty");
 
-
-
 }
 
 

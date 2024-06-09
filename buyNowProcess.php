@@ -29,10 +29,10 @@ if (isset($_POST["payment"])) {
     $newQty = $d["quantity"] - $payment["qty"];
     
     Database::iud("UPDATE `product` SET `quantity`='" . $newQty . "' WHERE `id`='" . $payment["p_id"] . "' ");
-    // echo ("Success");
+    echo ("Success");
 
     $order = array();
-    $order["resp"] = "Success";
+    // $order["resp"] = "Success";
     $order["order_id"] = $orderHistoryId;
 
     echo json_encode($order);
