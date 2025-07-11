@@ -111,6 +111,8 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 3. **Project Deployment:**
    - Copy all extracted files into `htdocs/halgahawatta`.
    - Access via `http://localhost/halgahawatta/home.php`.
+   - Access Admin Login `http://localhost/halgahawatta/adminLogin.php`.
+       * Create App Password in Your Google Account and Update `adminVerificationProcess.php` file.)
 
 4. **Configuration:**
    - Update database connection details inside PHP files (typically using `mysqli_connect()`).
