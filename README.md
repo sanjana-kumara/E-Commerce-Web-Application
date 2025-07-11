@@ -10,7 +10,7 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 
 1. **Sign / SignUp**
 
-    *User Login and Registration.
+    * User Login and Registration.
 
    <img width="1813" height="913" alt="image" src="https://github.com/user-attachments/assets/5c60fc63-f14c-49b1-a66c-a9c8c0186902" />
    <img width="1834" height="918" alt="image" src="https://github.com/user-attachments/assets/e9f555db-31ac-4287-b22c-b7ea6cfdce02" />
@@ -142,9 +142,10 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 ## 🧰 Technology Stack
 
 - **Backend:** PHP (Procedural)
-- **Frontend:** HTML, CSS, bootstrap
-- **Database:** MySQL 
+- **Frontend:** HTML/ CSS/ bootstrap
+- **Database:** MySQL / Hedisql
 - **Environment:** XAMPP / LAMP / WAMP
+- **Payment Gatway:** Payhere
 
 ## 🚀 Getting Started
 
