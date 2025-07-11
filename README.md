@@ -53,6 +53,11 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 
   <img width="1904" height="906" alt="image" src="https://github.com/user-attachments/assets/52ebae6a-4f3a-4de6-9622-32236b1fdd9a" />
 
+8. **Advance Search**
+
+   <img width="1855" height="899" alt="image" src="https://github.com/user-attachments/assets/aff4c040-562e-4f00-9193-b3490dc6e074" />
+
+
 ---
 
 #### 🧑‍💼 Admin Side
