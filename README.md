@@ -1,6 +1,5 @@
 # 🌐 Ecommerce Web Site
 
-
 The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application designed to digitalize the operations of a local hardware store. It offers core eCommerce functionalities such as product listing, shopping cart, wishlist, and secure admin-side product management. This lightweight system provides a simple and functional platform for both customers and administrators, helping streamline product handling, order preparation, and user interaction with the shop.
 
 ---
@@ -9,33 +8,50 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 
 #### 👤 Customer Side
 
-1. **Browse Products**
+1. **Sign / SignUp**
+
+    *User Login and Registration.
+
+   <img width="1813" height="913" alt="image" src="https://github.com/user-attachments/assets/5c60fc63-f14c-49b1-a66c-a9c8c0186902" />
+   <img width="1834" height="918" alt="image" src="https://github.com/user-attachments/assets/e9f555db-31ac-4287-b22c-b7ea6cfdce02" />
+
+3. **Browse Products**
 
    * Customers can view available products with details like name, price, and category.
 
-2. **Add to Cart**
+  <img width="1901" height="900" alt="image" src="https://github.com/user-attachments/assets/a4148385-37dd-4e45-8b44-7692148f6e04" />
+  <img width="1876" height="906" alt="image" src="https://github.com/user-attachments/assets/4cec74a5-cd08-4b2f-8112-fb237474f06d" />
+  <img width="1908" height="902" alt="image" src="https://github.com/user-attachments/assets/29578ce1-6518-4c2c-a03d-f28100b0648e" />
+
+4. **Add to Cart**
 
    * Customers can add items to their shopping cart from product listings.
 
-3. **Remove from Cart**
+    <img width="1904" height="902" alt="image" src="https://github.com/user-attachments/assets/30e8db48-db77-4957-9a18-aa0a60fde78f" />
+     
+5. **User Profile**
 
-   * Items can be removed from the cart when not needed.
+   * Edit Your Profile Detailes.
 
-4. **Cart Management**
+  <img width="1904" height="914" alt="image" src="https://github.com/user-attachments/assets/6d373487-e92c-45ec-be52-a83d754ea0f4" />
 
-   * Displays list of selected products with quantity and total amount.
+6. **Order History**
 
-5. **Add to Wishlist**
+   * Displays list of order products.
+  
+   <img width="1892" height="899" alt="image" src="https://github.com/user-attachments/assets/b8a05dfd-0fa1-4ea3-92de-1a345a00f145" />
+
+7. **Add to Wishlist**
 
    * Option to save items for future reference using the wishlist feature.
+  
+  <img width="1895" height="918" alt="image" src="https://github.com/user-attachments/assets/4dd1fed3-344b-40dc-96ec-c801f92ebc89" />
 
-6. **Session-based Cart**
+8. **Single Product view**
 
-   * Cart items persist during the session for a smooth shopping experience.
+   * See Product Description , Price , Review , etc....
 
-7. **Error/Status Messages**
-
-   * Displays success or failure messages when adding/removing items.
+  <img width="1904" height="906" alt="image" src="https://github.com/user-attachments/assets/52ebae6a-4f3a-4de6-9622-32236b1fdd9a" />
 
 ---
 
@@ -44,34 +60,65 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 1. **Admin Login System**
 
    * Secure login page for admin access.
+  
+    <img width="1894" height="915" alt="image" src="https://github.com/user-attachments/assets/27a5d89c-9811-4ea0-ac76-b16aa73cc44c" />
+
+    * Email Verification.
+
+    <img width="920" height="274" alt="image" src="https://github.com/user-attachments/assets/6ff73666-a3d9-420d-8bc8-82fa6a65398c" />
 
 2. **Admin Dashboard**
 
    * Overview panel after login displaying key management options.
 
-3. **Add New Product**
+  <img width="1907" height="914" alt="image" src="https://github.com/user-attachments/assets/4475baa8-e640-4190-8e5a-d73f4867f436" />
+  <img width="1903" height="920" alt="image" src="https://github.com/user-attachments/assets/0c3899e0-071c-4043-bb38-494247e036dc" />
+  <img width="1899" height="914" alt="image" src="https://github.com/user-attachments/assets/25f70550-7431-4e4e-8896-ca75e6248a6e" />
 
-   * Upload and save new product details into the system.
+3. **Product Management**
 
-4. **Manage Existing Products**
+   * Upload and save new product details into the system and Create new product categories for better classification.
+  
+  <img width="1902" height="690" alt="image" src="https://github.com/user-attachments/assets/c3aaf99c-01f2-4235-883a-69e1edba61b1" />
+  <img width="1901" height="916" alt="image" src="https://github.com/user-attachments/assets/1ec60520-59bb-4279-8ce0-eb7e5affba1a" />
 
-   * Edit or update product name, price, category, or availability.
+4. **User management**
 
-5. **Add Product Categories**
+   * Active, Deactive Users with User management.
 
-   * Create new product categories for better classification.
+  <img width="1907" height="919" alt="image" src="https://github.com/user-attachments/assets/c7696621-b952-4ba3-91e0-4c650a87f683" />
 
-6. **Search Products**
+5. **Stock Management**
 
-   * Find products quickly using the admin search functionality.
+   * Add Exsiting Product Active , Deactive , edit , etc... .
+  
+  <img width="1903" height="917" alt="image" src="https://github.com/user-attachments/assets/e1b703a5-e872-4b5a-a526-3ab23f1c620a" />
 
-7. **Admin Navigation Panel**
+6. **Report Management**
 
-   * Quick access to all admin functionalities from a central navbar.
+   * Report Dashboard.
 
-8. **Session Management**
+  <img width="1900" height="779" alt="image" src="https://github.com/user-attachments/assets/16fbe3a7-2289-4f4d-ab02-68ca315efbd6" />
 
-   * Admin session is maintained after login for secure access.
+7. **Stock Report**
+
+   * All Stock Report.
+  
+  <img width="1903" height="914" alt="image" src="https://github.com/user-attachments/assets/3611c756-60ec-4753-b47c-d0c781283808" />
+
+
+8. **Product Report**
+
+   * All Product Report.
+  
+   <img width="1889" height="913" alt="image" src="https://github.com/user-attachments/assets/72432bf9-aa2f-4b58-93b0-498a804974f8" />
+
+9. **user Report**
+
+   * All Users Report.
+  
+  <img width="1916" height="771" alt="image" src="https://github.com/user-attachments/assets/d483c75f-d9b5-46d3-8170-5ec3c4db5ac8" />
+
 
 ## 📁 Main Files Overview
 
@@ -87,6 +134,7 @@ The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application
 | `admin_SearchProductProcess.php` | Search for products in the admin panel     |
 | `adminNaveBar.php`           | Navigation bar for the admin panel               |
 | `admimProductManagement.php` | Manage existing product details (admin)          |
+
 
 ## 🗃️ Database: `halgahawatta`
 <img width="1005" height="868" alt="image" src="https://github.com/user-attachments/assets/0e77288e-1067-48f3-a5d1-82972003eafe" />
