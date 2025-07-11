@@ -31,7 +31,7 @@ if (empty($uname)) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'sanjananisalkumara@gmail.com';
-        $mail->Password = 'zxlpyygukieikdsa';
+        $mail->Password = 'phefocofkconvbno';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         $mail->setFrom('sanjananisalkumara@gmail.com', 'Reset Password');

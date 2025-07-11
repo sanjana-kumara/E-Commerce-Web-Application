@@ -98,7 +98,7 @@
 
                                 <div class="col-11 col-lg-6 d-grid mt-3 shadow-lg rounded-4">
 
-                                    <button class="btn btn-primary fs-4 fw-bold shadow-lg rounded-4" onclick="signUp();">Sign Up</button>
+                                    <button class="btn btn-primary fs-4 fw-bold shadow-lg rounded-4" onclick="sixgnUp();">Sign Up</button>
 
                                 </div>
 
