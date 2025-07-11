@@ -1,4 +1,5 @@
-# 🌐 Halgahawaththa Hardware Shop Ecommerce System
+# 🌐 Ecommerce Web Site
+
 
 The Halgahawaththa Hardware Shop Ecommerce System is a PHP-based web application designed to digitalize the operations of a local hardware store. It offers core eCommerce functionalities such as product listing, shopping cart, wishlist, and secure admin-side product management. This lightweight system provides a simple and functional platform for both customers and administrators, helping streamline product handling, order preparation, and user interaction with the shop.
 
